@@ -14,7 +14,7 @@ public class TPC_Rob : MonoBehaviour
     private float _inputSpeed;
     private Vector3 _targetDirection;
     private Animator _animator;
-    private float distToGround = 0.028f;
+    private float distToGround;
     private bool jumping ;
 
 
@@ -24,6 +24,7 @@ public class TPC_Rob : MonoBehaviour
 
     void Start()
     {
+        distToGround = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
     }
@@ -55,7 +56,7 @@ public class TPC_Rob : MonoBehaviour
         Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
         Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
 
-       if (!jumping && !shooting)
+       if (!jumping)
         {
          
         _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
@@ -115,8 +116,8 @@ public class TPC_Rob : MonoBehaviour
     private IEnumerator ActualJump(float jumpingWait ,float jumpPower, float duration, float landingWait) {
         _animator.SetBool("grounded", false);
         yield return new WaitForSeconds(jumpingWait); 
-      
-        _rigidbody.DOJump(_rigidbody.position + transform.forward * _inputSpeed * _speed, jumpPower, 1, duration);
+        
+        _rigidbody.DOJump((_rigidbody.position + transform.forward * _inputSpeed * _speed), jumpPower, 1, duration);
         Invoke("Land", landingWait);        
     }
 }

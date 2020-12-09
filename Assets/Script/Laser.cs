@@ -31,7 +31,7 @@ public class Laser : MonoBehaviour
 
     void shootRay()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width*0.5f,Screen.height*0.5f));
         if (Physics.Raycast(ray, out hit, range))
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
