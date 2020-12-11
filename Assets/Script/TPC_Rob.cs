@@ -13,14 +13,15 @@ public class TPC_Rob : MonoBehaviour
     private Vector3 _inputVector;
     private float _inputSpeed;
     private Vector3 _targetDirection;
+    private Vector3 newDir;
     private Animator _animator;
     private float distToGround;
     private bool jumping ;
-
+    private bool patch = false;
 
     public bool shooting = false;
-    
-
+    private float jumpHeight = 2f;
+    private float gravity = 9.8f;
 
     void Start()
     {
@@ -31,7 +32,14 @@ public class TPC_Rob : MonoBehaviour
 
     void Update()
     {
-
+        if (patch)
+        {
+            if (IsGrounded())
+            {
+                jumping = false;
+                _animator.SetBool("grounded", true);
+            }
+        }
         HandleInput();
 
         updateAnimations();
@@ -43,7 +51,7 @@ public class TPC_Rob : MonoBehaviour
     private void FixedUpdate()
     {
        
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
+        newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
           
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping)
         {
@@ -97,12 +105,13 @@ public class TPC_Rob : MonoBehaviour
     }
 
     private void Land() {
-        jumping = false;
-        _animator.SetBool("grounded", true);
+        patch = true;
+       
     }     
 
     private void HandleJumping()
     {
+        patch = false;
         if (_inputSpeed > 1.1f)
         {
             StartCoroutine(ActualJump(0f,2f,0.81f,0.81f));
@@ -115,9 +124,14 @@ public class TPC_Rob : MonoBehaviour
 
     private IEnumerator ActualJump(float jumpingWait ,float jumpPower, float duration, float landingWait) {
         _animator.SetBool("grounded", false);
-        yield return new WaitForSeconds(jumpingWait); 
-        
-        _rigidbody.DOJump((_rigidbody.position + transform.forward * _inputSpeed * _speed), jumpPower, 1, duration);
+        yield return new WaitForSeconds(jumpingWait);
+        _rigidbody.velocity = new Vector3(newDir.x *8f, CalculateVerticalJump(),newDir.z*8f);
+      //  _rigidbody.DOJump((_rigidbody.position + transform.forward * _inputSpeed * _speed), jumpPower, 1, duration);
         Invoke("Land", landingWait);        
+    }
+
+    private float CalculateVerticalJump()
+    {
+        return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
 }
