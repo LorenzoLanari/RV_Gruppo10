@@ -7,18 +7,26 @@ public class Laser : MonoBehaviour
 
 
     public float shootRate;
-    private float m_shootRateTimeStamp;
-
+    [SerializeField]
+    private int Damage = 1;
     public GameObject m_shotPrefab;
 
+    private float m_shootRateTimeStamp;
+    private TPC_Rob _tpc;
     RaycastHit hit;
     float range = 1000.0f;
+    void Start()
+    {
+       _tpc = GetComponentInParent<TPC_Rob>();
+        
+
+    }
 
 
     void Update()
     {
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && _tpc.shooting)
         {
             if (Time.time > m_shootRateTimeStamp)
             {
@@ -38,6 +46,9 @@ public class Laser : MonoBehaviour
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             GameObject.Destroy(laser, 2f);
 
+            var health = hit.collider.GetComponent<Health>();
+            if (health != null)
+                health.TakeDamage(Damage);
 
         }
 

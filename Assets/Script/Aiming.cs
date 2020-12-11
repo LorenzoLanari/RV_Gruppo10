@@ -51,7 +51,7 @@ public class Aiming : MonoBehaviour
         float v = Input.GetAxisRaw("Mouse Y");
         _target.transform.rotation *= Quaternion.AngleAxis(h * rotationPower, Vector3.up);
 
-        _target.transform.rotation *= Quaternion.AngleAxis(v * rotationPower, Vector3.right);
+        _target.transform.rotation *= Quaternion.AngleAxis(-v * rotationPower, Vector3.right);
 
         var angles = _target.transform.localEulerAngles;
         angles.z = 0;
