@@ -8,7 +8,7 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private Transform _cameraT;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _rotationSpeed = 3f;
-
+    
     private Rigidbody _rigidbody;
     private Vector3 _inputVector;
     private float _inputSpeed;
@@ -106,7 +106,7 @@ public class TPC_Rob : MonoBehaviour
 
     private void Land() {
         patch = true;
-       
+        _rigidbody.AddForce(Time.fixedDeltaTime * newDir*12000f, ForceMode.Force);
     }     
 
     private void HandleJumping()
@@ -114,19 +114,20 @@ public class TPC_Rob : MonoBehaviour
         patch = false;
         if (_inputSpeed > 1.1f)
         {
-            StartCoroutine(ActualJump(0f,2f,0.81f,0.81f));
+            StartCoroutine(ActualJump(0f,2f,0.81f,0.2f));
         }
         else if (_inputSpeed <= 1f) 
         {
-            StartCoroutine(ActualJump(0.6f, 1.5f, 1f, 0.8f));          
+            StartCoroutine(ActualJump(0.6f, 1.5f, 1f, 0.2f));          
         }
     }
 
     private IEnumerator ActualJump(float jumpingWait ,float jumpPower, float duration, float landingWait) {
         _animator.SetBool("grounded", false);
         yield return new WaitForSeconds(jumpingWait);
-        _rigidbody.velocity = new Vector3(newDir.x *8f, CalculateVerticalJump(),newDir.z*8f);
-      //  _rigidbody.DOJump((_rigidbody.position + transform.forward * _inputSpeed * _speed), jumpPower, 1, duration);
+
+        _rigidbody.velocity = new Vector3(newDir.x, CalculateVerticalJump(),newDir.z);
+       
         Invoke("Land", landingWait);        
     }
 
