@@ -66,9 +66,22 @@ public class TPC_Rob : MonoBehaviour
 
        if (!jumping)
         {
-         
-        _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
-        _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
+            if (!shooting)
+            {
+             _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
+             _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
+
+            }
+            else
+            {
+               _rigidbody.MovePosition(_rigidbody.position + _inputVector * _inputSpeed * _speed * Time.fixedDeltaTime);
+            }
+
+        }
+
+       if(_rigidbody.velocity.y < 0.1f)
+        {
+            _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
         }
     }
     private void HandleInput() {
@@ -106,7 +119,7 @@ public class TPC_Rob : MonoBehaviour
 
     private void Land() {
         patch = true;
-        _rigidbody.AddForce(Time.fixedDeltaTime * newDir*12000f, ForceMode.Force);
+        _rigidbody.AddForce(Time.fixedDeltaTime * newDir*5000f*_inputSpeed, ForceMode.Force);
     }     
 
     private void HandleJumping()
@@ -125,9 +138,7 @@ public class TPC_Rob : MonoBehaviour
     private IEnumerator ActualJump(float jumpingWait ,float jumpPower, float duration, float landingWait) {
         _animator.SetBool("grounded", false);
         yield return new WaitForSeconds(jumpingWait);
-
-        _rigidbody.velocity = new Vector3(newDir.x, CalculateVerticalJump(),newDir.z);
-       
+        _rigidbody.velocity = new Vector3(newDir.x , CalculateVerticalJump(),newDir.z);
         Invoke("Land", landingWait);        
     }
 
@@ -135,4 +146,6 @@ public class TPC_Rob : MonoBehaviour
     {
         return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
+
+
 }
