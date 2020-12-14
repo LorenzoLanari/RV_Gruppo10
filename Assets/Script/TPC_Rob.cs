@@ -18,6 +18,7 @@ public class TPC_Rob : MonoBehaviour
     private float distToGround;
     private bool jumping ;
     private bool patch = false;
+    private bool grabbing = false;
 
     public bool shooting = false;
     private float jumpHeight = 2f;
@@ -93,13 +94,22 @@ public class TPC_Rob : MonoBehaviour
         _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
 
         //RUNNING
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !grabbing)
             _inputSpeed *= 3;
 
         if (Input.GetKey(KeyCode.Mouse1))
             shooting = true;
         else
             shooting = false;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (grabbing)
+                grabbing = false;
+            else
+                grabbing = true;
+        }
+
     }
 
     private void updateAnimations() {
@@ -109,6 +119,11 @@ public class TPC_Rob : MonoBehaviour
             _animator.SetBool("shooting_prep", true);
         else
             _animator.SetBool("shooting_prep", false);
+
+        if(grabbing)
+            _animator.SetBool("grab", true);
+        else
+            _animator.SetBool("grab", false);
     }
     
     bool IsGrounded()
