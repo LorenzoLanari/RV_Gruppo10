@@ -8,7 +8,8 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private Transform _cameraT;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _rotationSpeed = 3f;
-    
+
+    private Grab _grab;
     private Rigidbody _rigidbody;
     private Vector3 _inputVector;
     private float _inputSpeed;
@@ -18,7 +19,7 @@ public class TPC_Rob : MonoBehaviour
     private float distToGround;
     private bool jumping ;
     private bool patch = false;
-    private bool grabbing = false;
+    
 
     public bool shooting = false;
     private float jumpHeight = 2f;
@@ -29,6 +30,7 @@ public class TPC_Rob : MonoBehaviour
         distToGround = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
+        _grab = GetComponent<Grab>();
     }
 
     void Update()
@@ -65,7 +67,7 @@ public class TPC_Rob : MonoBehaviour
         Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
         Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
 
-       if (!jumping)
+       if (!jumping && _grab.mutex)
         {
             if (!shooting)
             {
@@ -88,27 +90,21 @@ public class TPC_Rob : MonoBehaviour
     private void HandleInput() {
 
         //Handle the Input
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-        _inputVector = new Vector3(h, 0, v);
-        _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
+            _inputVector = new Vector3(h, 0, v);
 
+            _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
+        //if (!_grab.mutex)
+        //    _inputSpeed = 0;
         //RUNNING
-        if (Input.GetKey(KeyCode.LeftShift) && !grabbing)
+        if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing)
             _inputSpeed *= 3;
 
         if (Input.GetKey(KeyCode.Mouse1))
             shooting = true;
         else
             shooting = false;
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (grabbing)
-                grabbing = false;
-            else
-                grabbing = true;
-        }
 
     }
 
@@ -120,7 +116,7 @@ public class TPC_Rob : MonoBehaviour
         else
             _animator.SetBool("shooting_prep", false);
 
-        if(grabbing)
+        if(_grab.grabbing)
             _animator.SetBool("grab", true);
         else
             _animator.SetBool("grab", false);
