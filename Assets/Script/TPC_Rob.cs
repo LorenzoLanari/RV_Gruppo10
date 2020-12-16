@@ -55,7 +55,7 @@ public class TPC_Rob : MonoBehaviour
     {
        
         newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
-          
+        
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping)
         {
             jumping = true;
@@ -71,13 +71,15 @@ public class TPC_Rob : MonoBehaviour
         {
             if (!shooting)
             {
+
              _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
              _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
 
             }
             else
             {
-               _rigidbody.MovePosition(_rigidbody.position + _inputVector * _inputSpeed * _speed * Time.fixedDeltaTime);
+
+               _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
             }
 
         }
