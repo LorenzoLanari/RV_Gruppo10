@@ -22,7 +22,8 @@ public class Pickable : MonoBehaviour
         foreach(var hitCollider in hitColliders)
         {
             if (hitCollider == mycollider)
-                Debug.Log("arrived to destination");
+                rob.canDrop = true;
+
         }
 
 

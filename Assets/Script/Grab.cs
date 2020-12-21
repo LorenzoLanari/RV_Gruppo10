@@ -7,7 +7,8 @@ public class Grab : MonoBehaviour
     public bool grabbing = false;
     public bool mutex = true;
     public bool objectfound = false;
-    private bool patchv2 = false;
+    public bool canDrop = false;
+    private bool canGrab = false;
     public Transform GrabPoint;
     private TPC_Rob _tpc;
     private Pickable boxer;
@@ -24,40 +25,48 @@ public class Grab : MonoBehaviour
     {
         if (objectfound)
         {     
-            patchv2 = CheckPosition();
+            canGrab = CheckPosition();
         }
 
-        if (patchv2)
+        
+
+    
+        if (Input.GetKeyDown(KeyCode.E) && mutex)
         {
-
-
-            if (Input.GetKeyDown(KeyCode.E) && mutex)
+            if (canDrop && grabbing)
             {
-             
-                    if (grabbing)
-                    {
-
-                        boxer.transform.SetParent(null);
-                        mutex = false;
-                        grabbing = false;
-                        Invoke("Carry", 5.2f);
-                    }
-                    else
-                    {
-                        boxer.transform.SetParent(GrabPoint);
-                        Physics.IgnoreCollision(boxer.GetComponent<Collider>(), GetComponent<Collider>());
-                        mutex = false;
-                        grabbing = true;
-                        Invoke("Carry", 5.2f);
-                            
-                    }            
+                    
+                    Invoke("pickup", 3f);
+                    mutex = false;
+                    grabbing = false;
+                    canDrop = false;
+                    Invoke("Carry", 6f);                
             }
+            else if(canGrab && !grabbing)
+            {
+                //Physics.IgnoreCollision(boxer.GetComponent<Collider>(), GetComponent<Collider>());
+                Invoke("pickup", 3f);
+                mutex = false;
+                grabbing = true;
+                Invoke("Carry", 6f);
 
+            }            
         }
+
+        
 
     }
     public void Carry() {
         mutex = true;
+    }
+
+    public void pickup() {
+        if (grabbing)
+            boxer.transform.SetParent(GrabPoint);
+        else {
+            GrabPoint.DetachChildren();
+            
+        }
     }
 
     public bool CheckPosition()

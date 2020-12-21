@@ -103,7 +103,7 @@ public class TPC_Rob : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing)
             _inputSpeed *= 3;
 
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse1) && !_grab.grabbing)
             shooting = true;
         else
             shooting = false;
