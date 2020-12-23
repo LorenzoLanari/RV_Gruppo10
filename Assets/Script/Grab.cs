@@ -10,6 +10,7 @@ public class Grab : MonoBehaviour
     public bool canDrop = false;
     private bool canGrab = false;
     public Transform GrabPoint;
+    public Transform DetectPoint;
     private TPC_Rob _tpc;
     private Pickable boxer;
 
@@ -71,20 +72,25 @@ public class Grab : MonoBehaviour
 
     public bool CheckPosition()
     {
-        Ray raygrab = new Ray(transform.position, transform.forward);
-        RaycastHit raycastHit = new RaycastHit();
-        Debug.DrawRay(transform.position, transform.forward, Color.green);
-        if (Physics.Raycast(raygrab, out raycastHit, 500))
+        
+        
+        //RaycastHit raycastHit = new RaycastHit();
+        DebugExtension.DebugWireSphere(DetectPoint.position, 0.1f, 2f, true);
+        Collider[] hitColliders = Physics.OverlapSphere(DetectPoint.position,0.1f,_tpc.groundCheckMask);
+        foreach (var hitCollider in hitColliders)
         {
-            if (raycastHit.collider.GetComponent<Pickable>())
+
+            if (hitCollider.GetComponent<Pickable>())
             {
-                boxer = raycastHit.collider.GetComponent<Pickable>();
+                boxer = hitCollider.GetComponent<Pickable>();
                 
                 return true;
             }
             else
                 boxer = null;
+
         }
+        
         //Quaternion.AngleAxis(12.0f, transform.forward) * transform.right
         return false;
     }

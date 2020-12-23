@@ -10,7 +10,7 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 3f;
     [SerializeField] private float distToGround;
     [SerializeField] private Transform feet;
-    [SerializeField] private LayerMask groundCheckMask;
+    public LayerMask groundCheckMask;
     private Grab _grab;
     private Rigidbody _rigidbody;
     private Vector3 _inputVector;
@@ -75,11 +75,11 @@ public class TPC_Rob : MonoBehaviour
 
              _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
              _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
-                Debug.Log("QUI");
+               
             }
             else
             {
-                Debug.Log("QUI");
+   
                 _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
             }
 
