@@ -85,10 +85,10 @@ public class TPC_Rob : MonoBehaviour
 
         }
 
-       //if(_rigidbody.velocity.y < 0.1f)
-       // {
-       //     _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
-       // }
+       if(_rigidbody.velocity.y < 0.1f)
+        {
+            _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
+        }
     }
     private void HandleInput() {
 
@@ -140,20 +140,20 @@ public class TPC_Rob : MonoBehaviour
     private void HandleJumping()
     {
         patch = false;
-        if (_inputSpeed > 1.1f)
+        if (_inputSpeed > 2.5f)
         {
-            StartCoroutine(ActualJump(0f,2f,0.81f,0.2f));
+            StartCoroutine(ActualJump(0f,0.2f));
         }
         else if (_inputSpeed <= 1f) 
         {
-            StartCoroutine(ActualJump(0.6f, 1.5f, 1f, 0.2f));          
+            StartCoroutine(ActualJump(0.6f,  0.2f));          
         }
     }
 
-    private IEnumerator ActualJump(float jumpingWait ,float jumpPower, float duration, float landingWait) {
+    private IEnumerator ActualJump(float jumpingWait , float landingWait) {
         _animator.SetBool("grounded", false);
         yield return new WaitForSeconds(jumpingWait);
-        _rigidbody.velocity = new Vector3(newDir.x , CalculateVerticalJump(),newDir.z);
+        _rigidbody.velocity = new Vector3(newDir.x*_inputSpeed*1.7f , CalculateVerticalJump(),newDir.z*_inputSpeed*1.7f);
         Invoke("Land", landingWait);        
     }
 
