@@ -8,7 +8,9 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private Transform _cameraT;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _rotationSpeed = 3f;
-
+    [SerializeField] private float distToGround;
+    [SerializeField] private Transform feet;
+    [SerializeField] private LayerMask groundCheckMask;
     private Grab _grab;
     private Rigidbody _rigidbody;
     private Vector3 _inputVector;
@@ -16,10 +18,9 @@ public class TPC_Rob : MonoBehaviour
     private Vector3 _targetDirection;
     private Vector3 newDir;
     private Animator _animator;
-    private float distToGround;
     private bool jumping ;
     private bool patch = false;
-    
+    private bool ground;
 
     public bool shooting = false;
     private float jumpHeight = 2f;
@@ -27,7 +28,8 @@ public class TPC_Rob : MonoBehaviour
 
     void Start()
     {
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+
+        //collider = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _grab = GetComponent<Grab>();
@@ -44,7 +46,7 @@ public class TPC_Rob : MonoBehaviour
             }
         }
         HandleInput();
-
+        ground = IsGrounded();
         updateAnimations();
         //Compute direction According to Camera Orientation
         _targetDirection = _cameraT.TransformDirection(_inputVector).normalized;
@@ -63,7 +65,6 @@ public class TPC_Rob : MonoBehaviour
 
         } 
         
-
         Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
         Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
 
@@ -74,20 +75,20 @@ public class TPC_Rob : MonoBehaviour
 
              _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
              _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
-
+                Debug.Log("QUI");
             }
             else
             {
-
-               _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
+                Debug.Log("QUI");
+                _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
             }
 
         }
 
-       if(_rigidbody.velocity.y < 0.1f)
-        {
-            _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
-        }
+       //if(_rigidbody.velocity.y < 0.1f)
+       // {
+       //     _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
+       // }
     }
     private void HandleInput() {
 
@@ -111,6 +112,7 @@ public class TPC_Rob : MonoBehaviour
     }
 
     private void updateAnimations() {
+       
         _animator.SetFloat("speed", _inputSpeed);
 
         if (shooting)
@@ -126,8 +128,8 @@ public class TPC_Rob : MonoBehaviour
     
     bool IsGrounded()
     {
-     
-        return Physics.Raycast(_rigidbody.position, -Vector3.up, distToGround);
+        Debug.DrawRay(feet.position, distToGround * -Vector3.up,Color.red);
+        return Physics.Raycast(feet.position , -Vector3.up, distToGround, groundCheckMask);
     }
 
     private void Land() {
