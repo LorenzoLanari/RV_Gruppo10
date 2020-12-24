@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Health : MonoBehaviour
 {
     [SerializeField]
     private int StartHealth = 5;
+    public ParticleSystem Death_Effect;
 
     private int currentHealth;
 
@@ -24,6 +26,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        gameObject.SetActive(false);
+        Instantiate(Death_Effect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

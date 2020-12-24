@@ -134,7 +134,7 @@ public class TPC_Rob : MonoBehaviour
 
     private void Land() {
         patch = true;
-        _rigidbody.AddForce(Time.fixedDeltaTime * newDir*5000f*_inputSpeed, ForceMode.Force);
+        _rigidbody.AddForce(Time.fixedDeltaTime * newDir*4000f*_inputSpeed, ForceMode.Force);
     }     
 
     private void HandleJumping()
