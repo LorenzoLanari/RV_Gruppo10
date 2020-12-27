@@ -9,6 +9,7 @@ public class ShotBehavior : MonoBehaviour
     public float speed;
 
 
+
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +39,7 @@ public class ShotBehavior : MonoBehaviour
         {
             GameObject explosion = (GameObject)Instantiate(
                 collisionExplosion, transform.position, transform.rotation);
+            
             Destroy(gameObject);
             Destroy(explosion, 1f);
         }

@@ -14,20 +14,12 @@ public class Laser : MonoBehaviour
     private float m_shootRateTimeStamp;
     private TPC_Rob _tpc;
     private AudioSource _src_audio_laser;
-    private AudioSource _src_audio_exp;
     RaycastHit hit;
     float range = 1000.0f;
     void Start()
     {
        _tpc = GetComponentInParent<TPC_Rob>();
        _src_audio_laser = GetComponent<AudioSource>();
-        foreach (AudioSource aSource in GetComponents<AudioSource>())
-        {
-            if (aSource.clip.name.Equals("sfx_exp_medium8"))
-                _src_audio_exp = aSource;
-            else if (aSource.clip.name.Equals("sfw_wpn_laser7"))
-                _src_audio_laser = aSource;
-        }
     }
 
 
@@ -52,7 +44,7 @@ public class Laser : MonoBehaviour
         {
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             _src_audio_laser.PlayOneShot(_src_audio_laser.clip);
-            Invoke("explosion", 0.5f);
+         
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             GameObject.Destroy(laser, 2f);
 
@@ -64,9 +56,5 @@ public class Laser : MonoBehaviour
 
     }
 
-    public void explosion()
-    {
-        _src_audio_exp.PlayOneShot(_src_audio_exp.clip);
-    }
 
 }
