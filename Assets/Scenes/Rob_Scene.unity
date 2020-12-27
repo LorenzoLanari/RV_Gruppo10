@@ -152,6 +152,36 @@ Transform:
   m_Father: {fileID: 1492367541}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &34570497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34570498}
+  m_Layer: 0
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &34570498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34570497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000020857015, y: 0.026224453, z: 0.014066301}
+  m_LocalScale: {x: 0.012377273, y: 0.012377273, z: 0.012377273}
+  m_Children: []
+  m_Father: {fileID: 1988401857}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40698202
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +718,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 4.9882007, y: 1}
+    m_SensorSize: {x: 4.403646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1051,7 +1081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507449223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.05, y: 0.174, z: 9.83}
+  m_LocalPosition: {x: -0.003, y: 0.205, z: 6.14}
   m_LocalScale: {x: 0.40855, y: 0.40855, z: 0.40855}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1796,7 +1826,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 4.9882007, y: 1}
+    m_SensorSize: {x: 4.403646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2340,7 +2370,6 @@ Transform:
   m_Children:
   - {fileID: 2041543755}
   - {fileID: 2126617767}
-  - {fileID: 1352509253}
   m_Father: {fileID: 1310171442}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2428,7 +2457,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 4.9882007, y: 1}
+    m_SensorSize: {x: 4.403646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2451,36 +2480,6 @@ Transform:
   - {fileID: 730537964}
   m_Father: {fileID: 378542699}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1352509252
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352509253}
-  m_Layer: 0
-  m_Name: GrabPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1352509253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352509252}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01217, y: 0.0082, z: 0.00608}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1278538752}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359253253
 GameObject:
@@ -3449,7 +3448,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 4.9882007, y: 1}
+    m_SensorSize: {x: 4.403646, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3856,7 +3855,7 @@ MonoBehaviour:
   mutex: 1
   objectfound: 0
   canDrop: 0
-  GrabPoint: {fileID: 1352509253}
+  GrabPoint: {fileID: 34570498}
   DetectPoint: {fileID: 1846574207}
 --- !u!95 &1988401854
 Animator:
@@ -3923,6 +3922,7 @@ Transform:
   - {fileID: 318079782}
   - {fileID: 2038623740}
   - {fileID: 1846574207}
+  - {fileID: 34570498}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4339,6 +4339,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4331114498432450212, guid: 6d88d378adb44c7418f8a418b895a413,
         type: 3}
+    - target: {fileID: 4867849237270633613, guid: 80ebb6da354e3df458eef6c5ffff5231,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88d6bdfca28e06a4989d270642ef3bd0, type: 2}
     - target: {fileID: 4867849237270633615, guid: 80ebb6da354e3df458eef6c5ffff5231,
         type: 3}
       propertyPath: m_LocalPosition.x

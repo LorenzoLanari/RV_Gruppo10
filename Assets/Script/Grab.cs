@@ -9,10 +9,12 @@ public class Grab : MonoBehaviour
     public bool objectfound = false;
     public bool canDrop = false;
     private bool canGrab = false;
+    private bool flag = false;
     public Transform GrabPoint;
     public Transform DetectPoint;
     private TPC_Rob _tpc;
     private Pickable boxer;
+
 
 
     // Start is called before the first frame update
@@ -24,7 +26,7 @@ public class Grab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (objectfound)
+        if (objectfound && mutex)
         {     
             canGrab = CheckPosition();
         }
@@ -37,16 +39,16 @@ public class Grab : MonoBehaviour
             if (canDrop && grabbing)
             {
                     
-                    Invoke("pickup", 3f);
-                    mutex = false;
-                    grabbing = false;
-                    canDrop = false;
-                    Invoke("Carry", 6f);                
+                 Invoke("pickup", 3f);
+                 mutex = false;
+                 grabbing = false;
+                 canDrop = false;
+                 Invoke("Carry", 6f);                
             }
             else if(canGrab && !grabbing)
             {
-                //Physics.IgnoreCollision(boxer.GetComponent<Collider>(), GetComponent<Collider>());
-                Invoke("pickup", 3f);
+                Invoke("transport", 3f);
+                Invoke("pickup", 6f);
                 mutex = false;
                 grabbing = true;
                 Invoke("Carry", 6f);
@@ -54,19 +56,31 @@ public class Grab : MonoBehaviour
             }            
         }
 
-        
+        if(!mutex && grabbing && flag)
+             boxer.transform.position = Vector3.MoveTowards(boxer.transform.position, GrabPoint.position,Time.deltaTime*0.25f);
 
+        
+            
     }
     public void Carry() {
         mutex = true;
+        flag = false;
     }
+    public void transport()
+    {
+        flag = true;
 
+    }
     public void pickup() {
         if (grabbing)
-            boxer.transform.SetParent(GrabPoint);
+        {    
+                boxer.transform.SetParent(GrabPoint);
+                boxer.transform.localPosition = Vector3.zero;
+                boxer.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
+
         else {
-            GrabPoint.DetachChildren();
-            
+            GrabPoint.DetachChildren();    
         }
     }
 

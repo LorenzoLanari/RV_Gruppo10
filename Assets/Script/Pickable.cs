@@ -23,7 +23,8 @@ public class Pickable : MonoBehaviour
         {
             if (hitCollider == mycollider)
                 rob.canDrop = true;
-
+                
+         
         }
 
 
