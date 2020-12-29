@@ -57,7 +57,7 @@ public class Grab : MonoBehaviour
         }
 
         if(!mutex && grabbing && flag)
-             boxer.transform.position = Vector3.MoveTowards(boxer.transform.position, GrabPoint.position,Time.deltaTime*0.25f);
+             boxer.transform.position = Vector3.MoveTowards(boxer.transform.position, GrabPoint.position,Time.deltaTime*0.3f);
 
         
             

@@ -20,7 +20,7 @@ public class TPC_Rob : MonoBehaviour
     private Animator _animator;
     private bool jumping ;
     private bool patch = false;
-    private bool ground;
+    private bool dancing = false;
 
     public bool shooting = false;
     private float jumpHeight = 2f;
@@ -46,7 +46,6 @@ public class TPC_Rob : MonoBehaviour
             }
         }
         HandleInput();
-        ground = IsGrounded();
         updateAnimations();
         //Compute direction According to Camera Orientation
         _targetDirection = _cameraT.TransformDirection(_inputVector).normalized;
@@ -58,7 +57,7 @@ public class TPC_Rob : MonoBehaviour
        
         newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
         
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing)
         {
             jumping = true;
             HandleJumping();
@@ -68,7 +67,7 @@ public class TPC_Rob : MonoBehaviour
         Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
         Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
 
-       if (!jumping && _grab.mutex)
+       if (!jumping && _grab.mutex &&!dancing)
         {
             if (!shooting)
             {
@@ -101,13 +100,19 @@ public class TPC_Rob : MonoBehaviour
         //if (!_grab.mutex)
         //    _inputSpeed = 0;
         //RUNNING
-        if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing)
+        if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing &&!dancing)
             _inputSpeed *= 3;
 
-        if (Input.GetKey(KeyCode.Mouse1) && !_grab.grabbing)
+        if (Input.GetKey(KeyCode.Mouse1) && !_grab.grabbing && !dancing)
             shooting = true;
         else
             shooting = false;
+
+        if (Input.GetKeyDown(KeyCode.B) && !_grab.grabbing && !shooting && (_inputSpeed <0.1) && !dancing)
+        {
+            dancing = true;
+            Invoke("Stop_Dancing", 8f);
+        }
 
     }
 
@@ -124,12 +129,24 @@ public class TPC_Rob : MonoBehaviour
             _animator.SetBool("grab", true);
         else
             _animator.SetBool("grab", false);
+
+        if (dancing)
+            _animator.SetBool("dance", true);
+        
+
     }
     
+
     bool IsGrounded()
     {
         Debug.DrawRay(feet.position, distToGround * -Vector3.up,Color.red);
         return Physics.Raycast(feet.position , -Vector3.up, distToGround, groundCheckMask);
+    }
+    private void Stop_Dancing()
+    {
+       
+        dancing = false;
+        _animator.SetBool("dance", false);
     }
 
     private void Land() {
