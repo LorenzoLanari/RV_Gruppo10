@@ -29,7 +29,6 @@ public class TPC_Rob : MonoBehaviour
     void Start()
     {
 
-        //collider = GetComponent<Collider>().bounds.extents.y;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _grab = GetComponent<Grab>();
@@ -111,7 +110,7 @@ public class TPC_Rob : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && !_grab.grabbing && !shooting && (_inputSpeed <0.1) && !dancing)
         {
             dancing = true;
-            Invoke("Stop_Dancing", 8f);
+            Invoke("Stop_Dancing", 7f);
         }
 
     }

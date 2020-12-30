@@ -38,7 +38,6 @@ public class Grab : MonoBehaviour
         {
             if (canDrop && grabbing)
             {
-               _collider.isTrigger = false;
                 _rigidbody.isKinematic = false;
                 Invoke("pickup", 1f);
                  mutex = false;
@@ -72,21 +71,19 @@ public class Grab : MonoBehaviour
     public void transport()
     {
         flag = true;
-
     }
     public void pickup() {
         if (grabbing)
         {
-                _collider.isTrigger = true;
-                boxer.transform.SetParent(GrabPoint);
-            
+                boxer.transform.SetParent(GrabPoint);          
+                Physics.IgnoreCollision(_collider, _tpc.GetComponent<Collider>(),true);
                 boxer.transform.localPosition = Vector3.zero;
                 boxer.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            
         }
 
         else {
             GrabPoint.DetachChildren();
-            
             boxer = null;
             _rigidbody = null;
         }
