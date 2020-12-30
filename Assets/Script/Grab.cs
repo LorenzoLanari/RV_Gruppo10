@@ -14,8 +14,8 @@ public class Grab : MonoBehaviour
     public Transform DetectPoint;
     private TPC_Rob _tpc;
     private Pickable boxer;
-
-
+    private Rigidbody _rigidbody;
+    private Collider _collider;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +38,18 @@ public class Grab : MonoBehaviour
         {
             if (canDrop && grabbing)
             {
-                    
-                 Invoke("pickup", 3f);
+               _collider.isTrigger = false;
+                _rigidbody.isKinematic = false;
+                Invoke("pickup", 1f);
                  mutex = false;
                  grabbing = false;
                  canDrop = false;
-                 Invoke("Carry", 6f);                
+                 Invoke("Carry", 1f);                
             }
             else if(canGrab && !grabbing)
             {
+
+                _rigidbody.isKinematic = true;
                 Invoke("transport", 3f);
                 Invoke("pickup", 6f);
                 mutex = false;
@@ -73,14 +76,19 @@ public class Grab : MonoBehaviour
     }
     public void pickup() {
         if (grabbing)
-        {    
+        {
+                _collider.isTrigger = true;
                 boxer.transform.SetParent(GrabPoint);
+            
                 boxer.transform.localPosition = Vector3.zero;
                 boxer.transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
 
         else {
-            GrabPoint.DetachChildren();    
+            GrabPoint.DetachChildren();
+            
+            boxer = null;
+            _rigidbody = null;
         }
     }
 
@@ -96,8 +104,9 @@ public class Grab : MonoBehaviour
 
             if (hitCollider.GetComponent<Pickable>())
             {
+                _collider = hitCollider;
                 boxer = hitCollider.GetComponent<Pickable>();
-                
+                _rigidbody = boxer.GetComponent<Rigidbody>();
                 return true;
             }
             else

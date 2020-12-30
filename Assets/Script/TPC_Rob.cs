@@ -57,7 +57,7 @@ public class TPC_Rob : MonoBehaviour
        
         newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
         
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing && !_grab.grabbing)
         {
             jumping = true;
             HandleJumping();
@@ -97,8 +97,8 @@ public class TPC_Rob : MonoBehaviour
             _inputVector = new Vector3(h, 0, v);
 
             _inputSpeed = Mathf.Clamp(_inputVector.magnitude, 0f, 1f);
-        //if (!_grab.mutex)
-        //    _inputSpeed = 0;
+        if (!_grab.mutex)
+            _inputSpeed = 0;
         //RUNNING
         if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing &&!dancing)
             _inputSpeed *= 3;
