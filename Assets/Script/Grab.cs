@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
+    public GameObject LetterE;
+    private GameObject _instance = null;
+    private Vector3 Offset = new Vector3(0, 3.5f, 0);
+
     public bool grabbing = false;
     public bool mutex = true;
     public bool objectfound = false;
@@ -29,8 +33,27 @@ public class Grab : MonoBehaviour
         if (objectfound && mutex)
         {     
             canGrab = CheckPosition();
-        }
+            if (canGrab)
+            {
+                if (LetterE != null)
+                {
+                    LetterE.SetActive(true);
+                }
 
+            }
+        }
+        else if(!objectfound && !canDrop)
+        {
+            if (LetterE.activeSelf)
+                LetterE.SetActive(false);
+        }
+        else if(canDrop && grabbing)
+        {
+            if (LetterE != null )
+            {
+                LetterE.SetActive(true);
+            }
+        }
         
 
     
@@ -43,26 +66,24 @@ public class Grab : MonoBehaviour
                  mutex = false;
                  grabbing = false;
                  canDrop = false;
-                 Invoke("Carry", 1f);                
+                 Invoke("Carry", 1f);
+                LetterE.SetActive(false);
             }
             else if(canGrab && !grabbing)
             {
-
                 _rigidbody.isKinematic = true;
                 Invoke("transport", 3f);
                 Invoke("pickup", 6f);
                 mutex = false;
                 grabbing = true;
                 Invoke("Carry", 6f);
-
+                LetterE.SetActive(false);
             }            
         }
 
         if(!mutex && grabbing && flag)
              boxer.transform.position = Vector3.MoveTowards(boxer.transform.position, GrabPoint.position,Time.deltaTime*0.3f);
 
-        
-            
     }
     public void Carry() {
         mutex = true;
@@ -71,6 +92,7 @@ public class Grab : MonoBehaviour
     public void transport()
     {
         flag = true;
+        
     }
     public void pickup() {
         if (grabbing)
@@ -84,6 +106,7 @@ public class Grab : MonoBehaviour
 
         else {
             GrabPoint.DetachChildren();
+            Physics.IgnoreCollision(_collider, _tpc.GetComponent<Collider>(), false);
             boxer = null;
             _rigidbody = null;
         }
@@ -114,4 +137,7 @@ public class Grab : MonoBehaviour
         //Quaternion.AngleAxis(12.0f, transform.forward) * transform.right
         return false;
     }
+
+
+    
 }

@@ -10,6 +10,7 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 3f;
     [SerializeField] private float distToGround;
     [SerializeField] private Transform feet;
+
     public LayerMask groundCheckMask;
     private Grab _grab;
     private Rigidbody _rigidbody;
@@ -18,11 +19,12 @@ public class TPC_Rob : MonoBehaviour
     private Vector3 _targetDirection;
     private Vector3 newDir;
     private Animator _animator;
+
     private bool jumping ;
     private bool patch = false;
     private bool dancing = false;
-
     public bool shooting = false;
+   
     private float jumpHeight = 2f;
     private float gravity = 9.8f;
 
