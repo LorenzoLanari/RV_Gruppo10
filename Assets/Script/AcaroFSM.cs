@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class AcaroFSM : MonoBehaviour
 {
     [SerializeField] private List<Vector3> _waypoints;
-    [SerializeField] private GameObject _target;
+    public GameObject _target;
     [SerializeField] private Collider _groundCollider;
     [SerializeField] private float _minChaseDistance = 3f;
     [SerializeField] private float _minAttackDistance = 2f;
@@ -73,8 +73,7 @@ public class AcaroFSM : MonoBehaviour
 
     public void ProvideDamage()
     {
-        _animator.SetTrigger("attack");
-        _target.GetComponent<Rob_Health>().TakeDamage(1);
+       
         Attacking = false;
     }
 }
@@ -148,7 +147,9 @@ public class StopState : State
         if (!_guard.Attacking)
         {
             _guard.Attacking = true;
-            _guard.Invoke("ProvideDamage", 1.1f);
+            _guard._animator.SetTrigger("attack");
+            _guard._target.GetComponent<Rob_Health>().TakeDamage(1);
+            _guard.Invoke("ProvideDamage", 2f);
             
         }
          
