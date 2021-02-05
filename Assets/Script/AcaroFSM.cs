@@ -12,7 +12,7 @@ public class AcaroFSM : MonoBehaviour
     [SerializeField] private float _minChaseDistance = 3f;
     [SerializeField] private float _minAttackDistance = 2f;
     [SerializeField] private float _stoppingDistance = 1f;
-   
+    public Animator _animator;
 
     private FiniteStateMachine<AcaroFSM> _stateMachine;
 
@@ -31,7 +31,9 @@ public class AcaroFSM : MonoBehaviour
 
         _target = GameObject.FindGameObjectWithTag("Player");
         _groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<Collider>();
-        transform.forward = new Vector3(transform.forward.z,transform.forward.y,transform.forward.x);
+        //transform.localRotation = Quaternion.Euler(0f, 90f, 0.0f);
+
+        _animator = GetComponentInChildren<Animator>();
 
         //STATES
         State patrolState = new PatrolState("Patrol", this);
@@ -89,6 +91,7 @@ public class PatrolState : State
 
     public override void Tik()
     {
+
         _guard.SetWayPointDestination();
     }
 
@@ -138,7 +141,7 @@ public class StopState : State
 
     public override void Tik()
     {
-        
+        _guard._animator.SetTrigger("attack");
     }
 
     public override void Exit()
