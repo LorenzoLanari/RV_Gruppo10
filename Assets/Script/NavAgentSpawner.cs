@@ -24,7 +24,7 @@ public class NavAgentSpawner : MonoBehaviour
         for (int i = 0; i < _navMeshAgentsToSpawn; i++)
         {
             GameObject agent = Instantiate(_navAgentPrefab, GetRandomPositionOnGround(), Quaternion.identity);
-            NavMeshAgentRandomPosition targetReached = agent.GetComponent<NavMeshAgentRandomPosition>();
+           // NavMeshAgentRandomPosition targetReached = agent.GetComponent<NavMeshAgentRandomPosition>();
         }
     }
 

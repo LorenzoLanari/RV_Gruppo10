@@ -13,16 +13,12 @@ public class AcaroFSM : MonoBehaviour
     [SerializeField] private float _minAttackDistance = 2f;
     [SerializeField] private float _stoppingDistance = 1f;
     public Animator _animator;
-
+    public bool Attacking = false;
     private FiniteStateMachine<AcaroFSM> _stateMachine;
 
     private NavMeshAgent _navMeshAgent;
     private int _currentWayPointIndex = 0;
-    private Renderer _renderer;
-    private Color _originalColor;
-
-    public Renderer Renderer => _renderer;
-    public Color OriginalColor => _originalColor;
+    
 
     void Start()
     {
@@ -73,6 +69,14 @@ public class AcaroFSM : MonoBehaviour
     
     //TRANSITION FUNCTIONS
     private float DistanceFromTarget() => Vector3.Distance(_target.transform.position, transform.position);
+
+
+    public void ProvideDamage()
+    {
+        _animator.SetTrigger("attack");
+        _target.GetComponent<Rob_Health>().TakeDamage(1);
+        Attacking = false;
+    }
 }
 
 public class PatrolState : State
@@ -141,10 +145,17 @@ public class StopState : State
 
     public override void Tik()
     {
-        _guard._animator.SetTrigger("attack");
+        if (!_guard.Attacking)
+        {
+            _guard.Attacking = true;
+            _guard.Invoke("ProvideDamage", 1.1f);
+            
+        }
+         
     }
 
     public override void Exit()
     {
     }
+
 }

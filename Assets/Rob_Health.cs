@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Health : MonoBehaviour
+public class Rob_Health : MonoBehaviour
 {
     [SerializeField]
     private int StartHealth = 5;
-    public ParticleSystem Death_Effect;
 
     private int currentHealth;
 
@@ -20,14 +17,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-            Die();
-    }
-
-    private void Die()
-    {
-        Instantiate(Death_Effect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        
     }
     public int GetCurrentHealth()
     {

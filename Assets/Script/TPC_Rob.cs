@@ -19,14 +19,14 @@ public class TPC_Rob : MonoBehaviour
     private Vector3 _targetDirection;
     private Vector3 newDir;
     private Animator _animator;
-
     private bool jumping ;
     private bool patch = false;
     private bool dancing = false;
     public bool shooting = false;
-   
+    public bool dead = false; 
     private float jumpHeight = 2f;
     private float gravity = 9.8f;
+    private  Rob_Health health;
 
     void Start()
     {
@@ -34,6 +34,7 @@ public class TPC_Rob : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _grab = GetComponent<Grab>();
+        health = GetComponent<Rob_Health>();
     }
 
     void Update()
@@ -46,48 +47,63 @@ public class TPC_Rob : MonoBehaviour
                 _animator.SetBool("grounded", true);
             }
         }
-        HandleInput();
+
+        if(!dead)
+          HandleInput();
+
         updateAnimations();
         //Compute direction According to Camera Orientation
         _targetDirection = _cameraT.TransformDirection(_inputVector).normalized;
         _targetDirection.y = 0f;
+
+        if(health.GetCurrentHealth() <= 0)
+        {
+            dead = true;
+        }
+
+
     }
 
     private void FixedUpdate()
     {
-       
-        newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
-        
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing && !_grab.grabbing)
+
+        if (!dead)
         {
-            jumping = true;
-            HandleJumping();
-
-        } 
+                newDir = Vector3.RotateTowards(transform.forward, _targetDirection, _rotationSpeed * Time.fixedDeltaTime, 0f);
         
-        Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
-        Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
 
-       if (!jumping && _grab.mutex &&!dancing)
-        {
-            if (!shooting)
-            {
+                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing && !_grab.grabbing)
+                {
+                    jumping = true;
+                    HandleJumping();
 
-             _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
-             _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
+                } 
+        
+                Debug.DrawRay(transform.position + transform.up * 3f, _targetDirection * 5f, Color.red);
+                Debug.DrawRay(transform.position + transform.up * 3f, newDir * 5f, Color.blue);
+
+               if (!jumping && _grab.mutex &&!dancing)
+                {
+                    if (!shooting)
+                    {
+
+                     _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
+                     _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
                
-            }
-            else
-            {
+                    }
+                    else
+                    {
    
-                _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
-            }
+                        _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
+                    }
 
-        }
+                }
 
-       if(_rigidbody.velocity.y < 0.1f)
-        {
-            _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
+               if(_rigidbody.velocity.y < 0.1f)
+                {
+                    _rigidbody.AddForce(-Vector3.up* CalculateVerticalJump(), ForceMode.Force);
+                }
+
         }
     }
     private void HandleInput() {
@@ -101,10 +117,10 @@ public class TPC_Rob : MonoBehaviour
         if (!_grab.mutex)
             _inputSpeed = 0;
         //RUNNING
-        if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing &&!dancing)
+        if (Input.GetKey(KeyCode.LeftShift) && !_grab.grabbing &&!dancing &&!shooting )
             _inputSpeed *= 3;
 
-        if (Input.GetKey(KeyCode.Mouse1) && !_grab.grabbing && !dancing)
+        if (Input.GetKey(KeyCode.Mouse1) && !_grab.grabbing && !dancing &&_inputSpeed<=1)
             shooting = true;
         else
             shooting = false;
@@ -133,6 +149,8 @@ public class TPC_Rob : MonoBehaviour
 
         if (dancing)
             _animator.SetBool("dance", true);
+        if (dead)
+            _animator.SetTrigger("death");
         
 
     }
