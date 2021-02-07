@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class TPC_Rob : MonoBehaviour
 {
@@ -48,21 +49,25 @@ public class TPC_Rob : MonoBehaviour
             }
         }
 
-        if(!dead)
+        if (!dead)
+        { 
           HandleInput();
+        }
 
         updateAnimations();
         //Compute direction According to Camera Orientation
         _targetDirection = _cameraT.TransformDirection(_inputVector).normalized;
         _targetDirection.y = 0f;
 
-        if(health.GetCurrentHealth() <= 0)
+        if(health.GetCurrentHealth() == 0)
         {
+            FindObjectOfType<AudioManager>().Play("Death");
             dead = true;
         }
 
 
     }
+
 
     private void FixedUpdate()
     {
@@ -75,6 +80,7 @@ public class TPC_Rob : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing && !_grab.grabbing)
                 {
                     jumping = true;
+                    FindObjectOfType<AudioManager>().Play("Jump");
                     HandleJumping();
 
                 } 
@@ -95,7 +101,8 @@ public class TPC_Rob : MonoBehaviour
                     {
    
                         _rigidbody.MovePosition(_rigidbody.position + transform.TransformDirection(_inputVector)  * _inputSpeed * _speed * Time.fixedDeltaTime);
-                    }
+                        
+                }
 
                 }
 
@@ -149,8 +156,10 @@ public class TPC_Rob : MonoBehaviour
 
         if (dancing)
             _animator.SetBool("dance", true);
-        if (dead)
-            _animator.SetTrigger("death");
+        if (dead)      
+         _animator.SetTrigger("death");
+        
+           
         
 
     }
