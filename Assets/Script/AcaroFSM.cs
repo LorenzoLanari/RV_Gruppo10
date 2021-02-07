@@ -147,7 +147,8 @@ public class StopState : State
         if (!_guard.Attacking)
         {
             _guard.Attacking = true;
-            _guard._animator.SetTrigger("attack");
+            if(_guard._animator !=null)
+                _guard._animator.SetTrigger("attack");
             _guard._target.GetComponent<Rob_Health>().TakeDamage(1);
             _guard.Invoke("ProvideDamage", 2f);
             
