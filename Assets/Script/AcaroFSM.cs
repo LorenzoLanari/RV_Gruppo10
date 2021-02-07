@@ -70,10 +70,14 @@ public class AcaroFSM : MonoBehaviour
     //TRANSITION FUNCTIONS
     private float DistanceFromTarget() => Vector3.Distance(_target.transform.position, transform.position);
 
+    public void PlayDamage()
+    {
+      FindObjectOfType<AudioManager>().Play("Damage");
+    }
 
     public void ProvideDamage()
     {
-       
+        
         Attacking = false;
     }
 }
@@ -149,6 +153,7 @@ public class StopState : State
             _guard.Attacking = true;
             if(_guard._animator !=null)
                 _guard._animator.SetTrigger("attack");
+            _guard.PlayDamage();
             _guard._target.GetComponent<Rob_Health>().TakeDamage(1);
             _guard.Invoke("ProvideDamage", 2f);
             
