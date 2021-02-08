@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 6254157104454483685}
   - component: {fileID: 6254157104454483681}
   - component: {fileID: 6254157104454483680}
-  - component: {fileID: -3026293909947423691}
   m_Layer: 0
   m_Name: Box_Pickable
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff402fc522454c4b828e564629ddb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {fileID: 0}
 --- !u!54 &6254157104454483680
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,16 +123,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &-3026293909947423691
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6254157104454483690}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

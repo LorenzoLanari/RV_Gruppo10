@@ -9,6 +9,7 @@ public class MissionGoal
 
     public int requiredAmount;
     public int currentAmount;
+    public string toolTip;
 
     public bool IsReached()
     {

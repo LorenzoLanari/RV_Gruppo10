@@ -114,11 +114,10 @@ public class Grab : MonoBehaviour
 
     public bool CheckPosition()
     {
-        
-        
+
         //RaycastHit raycastHit = new RaycastHit();
-        DebugExtension.DebugWireSphere(DetectPoint.position, 0.1f, 2f, true);
-        Collider[] hitColliders = Physics.OverlapSphere(DetectPoint.position,0.1f,_tpc.groundCheckMask);
+        DebugExtension.DebugWireSphere(DetectPoint.position, 0.2f, 2f, true);
+        Collider[] hitColliders = Physics.OverlapSphere(DetectPoint.position,0.2f,_tpc.groundCheckMask);
         foreach (var hitCollider in hitColliders)
         {
 

@@ -13,6 +13,9 @@ public class MissionGiver : MonoBehaviour
     public GameObject questWindow;
     public Text titleText;
     public Text descriptionText;
+    public int currentAmount;
+    public int requiredAmount;
+    public string tooltip;
 
     private void OnTriggerEnter(Collider other)
     {

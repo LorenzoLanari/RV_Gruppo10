@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Compass
+  - Pickable
   - UINameHolder
   - QuestDestination
+  - DropZone
   layers:
   - Default
   - TransparentFX
