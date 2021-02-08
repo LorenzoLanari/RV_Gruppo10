@@ -25,7 +25,8 @@ public class TPC_Rob : MonoBehaviour
     private bool patch = false;
     private bool dancing = false;
     public bool shooting = false;
-    public bool dead = false; 
+    public bool dead = false;
+    public bool collected = false;
     private float jumpHeight = 2f;
     private float gravity = 9.8f;
     private  Rob_Health health;

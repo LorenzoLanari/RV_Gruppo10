@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 21d900754d41cc44a8a9acd9a3e940b6, type: 2}
---- !u!114 &19388072 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4719214593206651408, guid: b5c5666b9077c634799bebed47176407,
-    type: 3}
-  m_PrefabInstance: {fileID: 8763549558274021391}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &25715350
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +724,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.1855855, y: 1}
+    m_SensorSize: {x: 1.7782232, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1118,7 +1106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff402fc522454c4b828e564629ddb38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {fileID: 1632499252}
 --- !u!54 &507449229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1787,7 +1774,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.1855855, y: 1}
+    m_SensorSize: {x: 1.7782232, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1803,7 +1790,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765369865}
-  m_LocalRotation: {x: 0.19424808, y: -0.000000016878642, z: 0.0000000033423064, w: 0.98095244}
+  m_LocalRotation: {x: 0.19424808, y: 0.000000016878642, z: -0.0000000033423064, w: 0.98095244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2492,7 +2479,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.1855855, y: 1}
+    m_SensorSize: {x: 1.7782232, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2508,7 +2495,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327846588}
-  m_LocalRotation: {x: 0.22975291, y: 0.000000018721595, z: -0.0000000044195696, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.000000018723256, z: 0.0000000044199613, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3082,12 +3069,6 @@ Transform:
   m_Father: {fileID: 1430424462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1589058077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4719214592424326987, guid: b5c5666b9077c634799bebed47176407,
-    type: 3}
-  m_PrefabInstance: {fileID: 8763549558274021391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1593081853
 GameObject:
   m_ObjectHideFlags: 3
@@ -3509,7 +3490,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 2.1855855, y: 1}
+    m_SensorSize: {x: 1.7782232, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3897,6 +3878,18 @@ MonoBehaviour:
   _rotationSpeed: 5
   distToGround: 0.85
   feet: {fileID: 2038623740}
+  mission:
+    isActive: 0
+    title: 
+    description: 
+    SpawnZone: {fileID: 0}
+    Deliverable: {fileID: 0}
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
+      toolTip: 
+      var: {fileID: 0}
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 55
@@ -3914,7 +3907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7215a083a5b284ca04ce80855ceb72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LetterE: {fileID: 1589058077}
+  LetterE: {fileID: 0}
   grabbing: 0
   mutex: 1
   objectfound: 0
@@ -4003,7 +3996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartHealth: 5
-  slider: {fileID: 19388072}
+  slider: {fileID: 0}
 --- !u!1 &1990482413
 GameObject:
   m_ObjectHideFlags: 0
@@ -11645,6 +11638,16 @@ PrefabInstance:
     - target: {fileID: 742290758434852658, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193670459554403563, guid: b5c5666b9077c634799bebed47176407,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193670459554403563, guid: b5c5666b9077c634799bebed47176407,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4719214593951997515, guid: b5c5666b9077c634799bebed47176407,

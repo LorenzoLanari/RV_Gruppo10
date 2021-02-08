@@ -62,7 +62,7 @@ public class Grab : MonoBehaviour
             if (canDrop && grabbing)
             {
                 _rigidbody.isKinematic = false;
-                Invoke("pickup", 1f);
+                Invoke("pickup", 0.4f);
                  mutex = false;
                  grabbing = false;
                  canDrop = false;
@@ -76,6 +76,7 @@ public class Grab : MonoBehaviour
                 Invoke("pickup", 6f);
                 mutex = false;
                 grabbing = true;
+                _tpc.mission.goal.ItemCollected();
                 Invoke("Carry", 6f);
                 LetterE.SetActive(false);
             }            

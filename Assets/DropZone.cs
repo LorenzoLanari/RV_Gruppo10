@@ -5,17 +5,45 @@ using UnityEngine;
 public class DropZone : MonoBehaviour
 {
     public GameObject Box;
+    private MissionFinisher finisher;
     private void Start()
     {
         Box = GameObject.FindGameObjectWithTag("Pickable");
+        finisher = GetComponentInParent<MissionFinisher>();
     }
 
     private void OnTriggerEnter(Collider other)
-    {    
-        if (other == Box.GetComponent<Collider>())
+    {
+       if (finisher.mission.goal.goalType == GoalType.Deliver)
         {
+            if (other == Box.GetComponent<Collider>())
+            {
            
-            Box.GetComponent<Pickable>().SetCanDrop(true);
+                Box.GetComponent<Pickable>().SetCanDrop(true);
+            }
+
+        }
+       else if(finisher.mission.goal.goalType == GoalType.Handin)
+        {
+            
+            if (other == finisher.Rob.GetComponent<Collider>())
+            {
+                if (finisher.Rob.collected)
+                {
+                    finisher.mission.goal.ItemCollected();
+                    if (finisher.mission.goal.IsReached())
+                    {
+                        finisher.MissionComplete();
+                    }
+                    else
+                    {
+                        finisher.mission.SpawnZone.Spawn();
+                    }
+
+                }
+                
+            }
+
         }
        
 

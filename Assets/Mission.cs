@@ -9,7 +9,7 @@ public class Mission
 
     public string title;
     public string description;
-    public Transform SpawnZone;
+    public SpawnZone SpawnZone;
     public GameObject Deliverable;
 
     public MissionGoal goal;

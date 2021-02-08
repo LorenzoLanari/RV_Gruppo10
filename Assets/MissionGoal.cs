@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class MissionGoal 
@@ -10,6 +11,7 @@ public class MissionGoal
     public int requiredAmount;
     public int currentAmount;
     public string toolTip;
+    public Text var;
 
     public bool IsReached()
     {
@@ -18,8 +20,12 @@ public class MissionGoal
 
     public void ItemCollected()
     {
-        if(goalType == GoalType.Deliver)
-            currentAmount++;
+        if(goalType == GoalType.Deliver || goalType == GoalType.Handin)
+        {
+           currentAmount++;
+           var.text =  currentAmount.ToString();
+        }
+           
     }
 
 }
@@ -27,5 +33,6 @@ public class MissionGoal
 public enum GoalType
 {
     Deliver,
+    Handin,
     Puzzle
 }
