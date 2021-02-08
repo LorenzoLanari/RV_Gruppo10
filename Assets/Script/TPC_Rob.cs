@@ -12,6 +12,7 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private float distToGround;
     [SerializeField] private Transform feet;
 
+    public Mission mission;
     public LayerMask groundCheckMask;
     private Grab _grab;
     private Rigidbody _rigidbody;
