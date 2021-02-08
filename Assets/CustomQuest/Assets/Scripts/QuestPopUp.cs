@@ -59,6 +59,8 @@ public class QuestPopUp : MonoBehaviour
     /// </summary>
     public QuestUI questUI;
 
+
+
     #endregion Fields
 
     /// <summary>
@@ -66,6 +68,7 @@ public class QuestPopUp : MonoBehaviour
     /// </summary>
     private void Start()
     {
+       
         rect = GetComponent<RectTransform>();
     }
 
@@ -139,6 +142,7 @@ public class QuestPopUp : MonoBehaviour
     /// </summary>
     public void AcceptQuest()
     {
+        Time.timeScale = 1f;
         QuestHandler.Instance.QuestsDiscovered(quest, player);
         Destroy(this.gameObject);
     }
@@ -148,6 +152,7 @@ public class QuestPopUp : MonoBehaviour
     /// </summary>
     public void DeclineQuest()
     {
+        Time.timeScale = 1f;
         Destroy(this.gameObject);
     }
 

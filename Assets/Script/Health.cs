@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         Instantiate(Death_Effect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
     public int GetCurrentHealth()
     {

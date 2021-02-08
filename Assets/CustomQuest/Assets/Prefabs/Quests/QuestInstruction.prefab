@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1340965330823172
+--- !u!1 &3964723182304319719
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4851811495417078}
-  - component: {fileID: 114359410852811610}
-  - component: {fileID: 114244381197644140}
-  - component: {fileID: 114041604883445950}
-  - component: {fileID: 114337223197103594}
+  - component: {fileID: 2498735566333696427}
+  - component: {fileID: 2404702409719909045}
+  - component: {fileID: -3038337628032393096}
   m_Layer: 0
-  m_Name: Kill Gobbos
+  m_Name: QuestInstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4851811495417078
+--- !u!4 &2498735566333696427
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340965330823172}
+  m_GameObject: {fileID: 3964723182304319719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114359410852811610
+--- !u!114 &2404702409719909045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340965330823172}
+  m_GameObject: {fileID: 3964723182304319719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad43c1186aced74089481edb755f61a, type: 3}
@@ -63,30 +61,27 @@ MonoBehaviour:
   showOptionalThresholds: 0
   prefab: {fileID: 0}
   questIcon: {fileID: 0}
-  questName: Kill Gobbos
-  description: An example prefab for killing some enemies and getting some resource
-    rewards
-  toolTip: 
-  startAvailability: 1
+  questName: QuestInstruction
+  description: Deliver Instruction
+  toolTip: Deliver Instruction
+  startAvailability: 0
   constantAvailability: 0
-  autoComplete: 1
+  autoComplete: 0
   questCompleted: 0
-  repeatable: 1
-  repeatableTime: 10
+  repeatable: 0
+  repeatableTime: 0
   dontDelete: 0
   singleComplete: 0
-  startSpawningOnDiscover: 1
+  startSpawningOnDiscover: 0
   noSpawnIfNoPlayer: 0
   timed: 0
   matchOptionalLevels: 0
   pickUpAble: 0
   time: 0
   criterias:
-  - {fileID: 114244381197644140}
-  rewards:
-  - {fileID: 114041604883445950}
-  - {fileID: 114337223197103594}
-  thresholds: 00000000
+  - {fileID: -3038337628032393096}
+  rewards: []
+  thresholds: 
   optionalThresholds: 
   optionalCriterias: []
   optionalRewards: []
@@ -97,13 +92,13 @@ MonoBehaviour:
   questGivers: []
   playersUnCompleted: []
   playersCompleted: []
---- !u!114 &114244381197644140
+--- !u!114 &-3038337628032393096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340965330823172}
+  m_GameObject: {fileID: 3964723182304319719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4af022c4ba58d249b5d8b1fafcfede5, type: 3}
@@ -113,9 +108,10 @@ MonoBehaviour:
   toolbarInt: 3
   editorType: 0
   amount: 5
-  criteriaName: Kill Gobbos
+  criteriaName: Deliver Gems
   type: 2
-  criteriaObject: {fileID: 190296, guid: cf8fb48b3070beb4bb664e9f220ffa49, type: 3}
+  criteriaObject: {fileID: 1159802807427632, guid: 28a20a84abeb0a54891b536f54cd75dc,
+    type: 3}
   spawnZones: []
   level: 0
   rewards: []
@@ -124,39 +120,3 @@ MonoBehaviour:
   timed: 0
   dontDespawnObjectsWhenComplete: 0
   time: 0
---- !u!114 &114041604883445950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340965330823172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d324cc16d988a1b44be3799d33aadfb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCustomScript: 0
-  editoreRewardType: 0
-  rewardName: One resource reward
-  type: 0
-  rewardObject: {fileID: 0}
-  amount: 100
---- !u!114 &114337223197103594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340965330823172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d324cc16d988a1b44be3799d33aadfb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isCustomScript: 0
-  editoreRewardType: 0
-  rewardName: Another resource reward
-  type: 0
-  rewardObject: {fileID: 0}
-  amount: 50

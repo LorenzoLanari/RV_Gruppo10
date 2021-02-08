@@ -120,6 +120,7 @@ public class QuestGiver : MonoBehaviour
                 {
                     if (quest != null && quest.pickUpAble == true)
                     {
+                        Time.timeScale = 0f;
                         StartQuestPopUp(player, quest);
                     }
                 }

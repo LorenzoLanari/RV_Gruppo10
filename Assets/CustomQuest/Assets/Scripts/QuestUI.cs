@@ -922,13 +922,14 @@ public class QuestUI : MonoBehaviour
             {
                 if (!quest.playersCompleted.Contains(player) || (quest.repeatable && quest.remainingRepeatableTime[player] <= 0))
                 {
-                    QuestPopUp questPopUp = Instantiate(questPopUpPrefab) as QuestPopUp;
-                    questPopUp.transform.SetParent(this.gameObject.transform, false);
-                    questPopUp.questGiver = questGiver;
-                    questPopUp.player = player;
-                    questPopUp.quest = quest;
+                    //QuestPopUp questPopUp = Instantiate(questPopUpPrefab) as QuestPopUp;
+                    questPopUpPrefab.transform.gameObject.SetActive(true);
+                    //questPopUp.transform.SetParent(this.gameObject.transform, false);
+                    questPopUpPrefab.questGiver = questGiver;
+                    questPopUpPrefab.player = player;
+                    questPopUpPrefab.quest = quest;
                     activeQuestPopUpQuests[player].Add(quest);
-                    questPopUp.SetStartValues(this);
+                    questPopUpPrefab.SetStartValues(this);
                 }
             }
         }
