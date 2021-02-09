@@ -31,6 +31,7 @@ public class DropZone : MonoBehaviour
                 if (finisher.Rob.collected)
                 {
                     finisher.mission.goal.ItemCollected();
+                    finisher.Rob.collected = false;
                     if (finisher.mission.goal.IsReached())
                     {
                         finisher.MissionComplete();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MissionGiver : MonoBehaviour
 {
@@ -16,7 +17,18 @@ public class MissionGiver : MonoBehaviour
     public Text descriptionText;
     public Text fisso;
     public Text variabile;
+    private float StartPositionY;
 
+    private void Start()
+    {
+        StartPositionY = transform.position.y;
+        Sequence moveSequence = DOTween.Sequence();
+        moveSequence.Append(transform.DOMoveY(StartPositionY + 1.5f, 2f));
+        moveSequence.Append(transform.DOMoveY(StartPositionY , 2f));
+        moveSequence.SetLoops(-1);
+        moveSequence.Play();
+    }
+   
     private void OnTriggerEnter(Collider other)
     {
         if(other == Rob.GetComponent<Collider>())
