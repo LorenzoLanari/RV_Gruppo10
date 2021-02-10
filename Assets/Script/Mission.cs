@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Mission
+public class Mission 
 {
     public bool isActive;
 

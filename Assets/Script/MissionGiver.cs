@@ -4,13 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+
 public class MissionGiver : MonoBehaviour
 {
     public Mission mission;
     public TPC_Rob Rob;
     public MissionFinisher Finisher;
 
+    public GameObject canvasUI;
+    public GameObject canvasAim;
 
+    public GameObject puzzleWindow;
     public GameObject questWindow;
     public GameObject questGoal;
     public Text titleText;
@@ -51,20 +55,31 @@ public class MissionGiver : MonoBehaviour
         questWindow.SetActive(false);
         mission.isActive = true;
         Rob.mission = mission;
-        mission.SpawnZone.mission = mission;
         Time.timeScale = 1f;
-
-        if (mission.goal.goalType == GoalType.Deliver || mission.goal.goalType == GoalType.Handin)
-            mission.SpawnZone.Spawn();
-
+        
+        mission.SpawnZone.mission = mission;
+        mission.SpawnZone.Spawn();
+       
         questGoal.SetActive(true);
         fisso.text = mission.goal.toolTip + " " + mission.goal.requiredAmount;
         variabile.text =  mission.goal.currentAmount.ToString();
         transform.gameObject.SetActive(false);
         Finisher.transform.gameObject.SetActive(true);
         Finisher.mission = mission;
+        Finisher.Rob = Rob;     
+    }
+    public void AcceptPuzzle() {
+        questWindow.SetActive(false);
+        mission.isActive = true;
+        Rob.mission = mission;
+        puzzleWindow.SetActive(true);
+        Finisher.transform.gameObject.SetActive(true);
+        Finisher.mission = mission;
         Finisher.Rob = Rob;
-     
+        questGoal.SetActive(true);
+        fisso.text = mission.goal.toolTip + " " + mission.goal.requiredAmount;
+        variabile.text = mission.goal.currentAmount.ToString();
+        transform.gameObject.SetActive(false);
     }
 }
 

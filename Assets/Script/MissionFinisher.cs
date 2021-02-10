@@ -7,12 +7,16 @@ public class MissionFinisher : MonoBehaviour
     public Mission mission;
     public TPC_Rob Rob;
     public GameObject missionComplete;
-   
+    public MissionManager manager;
+
     public void MissionComplete()
     {
         mission.isActive = false;
+        
         missionComplete.SetActive(true);
-        Rob.GetComponent<Grab>().enabled = false;
+        if(mission.goal.goalType == GoalType.Deliver)
+            Rob.GetComponent<Grab>().enabled = false;
+        manager.NextMission();
         gameObject.SetActive(false);
     }
       
