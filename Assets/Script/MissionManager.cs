@@ -34,7 +34,9 @@ public class MissionManager : MonoBehaviour
             }
             if (Givers[_active].questGoal.activeSelf)
                     Givers[_active].questGoal.SetActive(false);
-            
+
+
+            gameObject.GetComponent<TimelineController>().Play();
         }
             
     }
