@@ -5,6 +5,8 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     public MissionGiver[] Givers;
+    public List<GameObject> acari;
+
     private int _active=0;
 
     private void Awake()
@@ -35,7 +37,13 @@ public class MissionManager : MonoBehaviour
             if (Givers[_active].questGoal.activeSelf)
                     Givers[_active].questGoal.SetActive(false);
 
-
+            foreach (GameObject acaro in acari)
+            {
+                if (acaro != null)
+                {
+                    Destroy(acaro);
+                }
+            }
             gameObject.GetComponent<TimelineController>().Play();
         }
             

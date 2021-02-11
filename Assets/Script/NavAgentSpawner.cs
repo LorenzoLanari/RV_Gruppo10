@@ -8,7 +8,7 @@ public class NavAgentSpawner : MonoBehaviour
     [SerializeField] private GameObject _navAgentPrefab;
     [SerializeField] private int _navMeshAgentsToSpawn = 10;
     [SerializeField] private Collider _groundCollider;
-
+    public MissionManager manager;
     private static NavAgentSpawner _instance;
 
     public static NavAgentSpawner Instance => _instance;
@@ -24,6 +24,7 @@ public class NavAgentSpawner : MonoBehaviour
         for (int i = 0; i < _navMeshAgentsToSpawn; i++)
         {
             GameObject agent = Instantiate(_navAgentPrefab, GetRandomPositionOnGround(), Quaternion.identity);
+            manager.acari.Add(agent);
            // NavMeshAgentRandomPosition targetReached = agent.GetComponent<NavMeshAgentRandomPosition>();
         }
     }
