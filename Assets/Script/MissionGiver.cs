@@ -10,10 +10,6 @@ public class MissionGiver : MonoBehaviour
     public Mission mission;
     public TPC_Rob Rob;
     public MissionFinisher Finisher;
-
-    public GameObject canvasUI;
-    public GameObject canvasAim;
-
     public GameObject puzzleWindow;
     public GameObject questWindow;
     public GameObject questGoal;

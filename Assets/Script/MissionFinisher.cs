@@ -11,13 +11,19 @@ public class MissionFinisher : MonoBehaviour
 
     public void MissionComplete()
     {
-        mission.isActive = false;
-        
+        mission.isActive = false;  
         missionComplete.SetActive(true);
+        Invoke("Cleaner", 2f);
         if(mission.goal.goalType == GoalType.Deliver)
             Rob.GetComponent<Grab>().enabled = false;
+        
         manager.NextMission();
         gameObject.SetActive(false);
+
     }
-      
+    
+    public void Cleaner()
+    {
+        missionComplete.SetActive(false);
+    } 
 }

@@ -65,7 +65,8 @@ public class Grab : MonoBehaviour
                 Invoke("pickup", 0.4f);
                  mutex = false;
                  grabbing = false;
-                 canDrop = false;
+                 canDrop = false; 
+                _tpc.mission.goal.ItemCollected();
                  Invoke("Carry", 1f);
                 LetterE.SetActive(false);
             }
@@ -76,7 +77,7 @@ public class Grab : MonoBehaviour
                 Invoke("pickup", 6f);
                 mutex = false;
                 grabbing = true;
-                _tpc.mission.goal.ItemCollected();
+               
                 Invoke("Carry", 6f);
                 LetterE.SetActive(false);
             }            

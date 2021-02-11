@@ -14,11 +14,29 @@ public class MissionManager : MonoBehaviour
     public void NextMission() {
         if (_active < Givers.Length - 1)
         {
+            if (Givers[_active].questGoal.activeSelf)
+                Givers[_active].questGoal.SetActive(false);
+
+            
+
             _active++;
             Givers[_active].transform.gameObject.SetActive(true);
         }
         else
-            Debug.Log("Missioni finite");
+        {
+            if (Givers[_active].mission.goal.goalType == GoalType.Puzzle)
+            {
+                Time.timeScale = 1f;
+                Givers[_active].puzzleWindow.SetActive(false);
+
+                
+
+            }
+            if (Givers[_active].questGoal.activeSelf)
+                    Givers[_active].questGoal.SetActive(false);
+            
+        }
+            
     }
     public void AcceptMission() {
         if(Givers[_active].mission.goal.goalType == GoalType.Deliver || Givers[_active].mission.goal.goalType == GoalType.Handin)
