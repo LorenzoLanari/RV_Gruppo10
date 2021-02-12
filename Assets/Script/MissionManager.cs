@@ -7,6 +7,10 @@ public class MissionManager : MonoBehaviour
     public MissionGiver[] Givers;
     public List<GameObject> acari;
 
+    public GameObject Healthbar;
+    public GameObject Minimap;
+    public GameObject DialogueCanvas;
+
     private int _active=0;
 
     private void Awake()
@@ -45,6 +49,8 @@ public class MissionManager : MonoBehaviour
                 }
             }
             gameObject.GetComponent<TimelineController>().Play();
+            gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            HandleUI();
         }
             
     }
@@ -53,5 +59,12 @@ public class MissionManager : MonoBehaviour
             Givers[_active].AcceptMission();
         else
             Givers[_active].AcceptPuzzle();
+    }
+
+    public void HandleUI()
+    {
+        Healthbar.SetActive(false);
+        Minimap.SetActive(false);
+        DialogueCanvas.SetActive(true);
     }
 }
