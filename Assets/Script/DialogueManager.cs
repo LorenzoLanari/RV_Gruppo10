@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-       // dissolvenza.gameObject.SetActive(true);
+        dissolvenza.gameObject.SetActive(true);
         dissolvenza.LoadNextLevel();
     }
 

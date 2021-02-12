@@ -370,7 +370,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7781334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -881,6 +881,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8548670099529421100, guid: 3609498b43afb094294a38d5e56e214f,
     type: 3}
   m_PrefabInstance: {fileID: 8548670099137854552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &965216870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1877962820041318089, guid: 16b332225dc27fa488678c410375d6e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7373745074043860186}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1019786687 stripped
 GameObject:
@@ -8739,12 +8745,12 @@ PrefabInstance:
     - target: {fileID: 2462011069009519066, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018722702
+      value: -0.000000018722702
       objectReference: {fileID: 0}
     - target: {fileID: 2462011069009519066, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000000441983
+      value: 0.00000000441983
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f, type: 3}
@@ -8841,6 +8847,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6254157104454483690, guid: 2500457fc947ed0418926757900fc3b3,
         type: 3}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
+      propertyPath: mission.description
+      value: consegnalo
+      objectReference: {fileID: 0}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
       propertyPath: mission.goal.goalType
@@ -9265,6 +9276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163631582079104769, guid: 1e85ba36bc4f4d44394158b4542fdad2,
         type: 3}
+      propertyPath: transitionTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163631582079104769, guid: 1e85ba36bc4f4d44394158b4542fdad2,
+        type: 3}
       propertyPath: DissolvenzaAnimator
       value: 
       objectReference: {fileID: 1570784265}
@@ -9385,6 +9401,7 @@ MonoBehaviour:
     type: 3}
   _navMeshAgentsToSpawn: 10
   _groundCollider: {fileID: 993175283517591936}
+  spawns: []
   manager: {fileID: 7190872651987590694}
 --- !u!114 &7190872651987590696
 MonoBehaviour:
@@ -9431,6 +9448,11 @@ PrefabInstance:
       propertyPath: Rob
       value: 
       objectReference: {fileID: 340903077}
+    - target: {fileID: 7373745073284047072, guid: 16b332225dc27fa488678c410375d6e5,
+        type: 3}
+      propertyPath: Arrow
+      value: 
+      objectReference: {fileID: 965216870}
     - target: {fileID: 7373745073284047072, guid: 16b332225dc27fa488678c410375d6e5,
         type: 3}
       propertyPath: manager
