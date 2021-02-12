@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class AcaroFSM : MonoBehaviour
 {
-    [SerializeField] private List<Vector3> _waypoints;
+    public List<Vector3> _waypoints;
     public GameObject _target;
     [SerializeField] private Collider _groundCollider;
     [SerializeField] private float _minChaseDistance = 3f;
@@ -42,14 +43,8 @@ public class AcaroFSM : MonoBehaviour
         _stateMachine.AddTransition(chaseState,stopState, () => DistanceFromTarget() <= _stoppingDistance);
         _stateMachine.AddTransition(stopState,chaseState, () => DistanceFromTarget() > _stoppingDistance);
 
-        //WAYPOINTS
-        for (int i = 0; i < 5; i++)
-        {
-            Vector3 min = _groundCollider.bounds.min;
-            Vector3 max = _groundCollider.bounds.max;          
-            Vector3 tmp_vec = new Vector3(UnityEngine.Random.Range(min.x, max.x), 2f, UnityEngine.Random.Range(min.z, max.z));         
-            _waypoints.Add(tmp_vec); 
-        }
+        
+
         //START STATE
         _stateMachine.SetState(patrolState);
     }
@@ -61,7 +56,10 @@ public class AcaroFSM : MonoBehaviour
         if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance && _navMeshAgent.velocity.sqrMagnitude <= 0f)
         {
             _currentWayPointIndex = (_currentWayPointIndex + 1) % _waypoints.Count;
-            Vector3 nextWayPointPos = _waypoints[_currentWayPointIndex];
+            //Vector3 nextWayPointPos = _waypoints[_currentWayPointIndex];
+            Vector3 nextWayPointPos = _waypoints[UnityEngine.Random.Range(0, _waypoints.Count)];
+            
+            
             _navMeshAgent.SetDestination(new Vector3(nextWayPointPos.x, transform.position.y, nextWayPointPos.z));
         }
     }
