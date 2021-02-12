@@ -209,5 +209,7 @@ public class TPC_Rob : MonoBehaviour
         return Mathf.Sqrt(2 * jumpHeight * gravity);
     }
 
-
+    public void endMission() {
+        dancing = true;
+    }
 }

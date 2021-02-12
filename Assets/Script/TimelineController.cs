@@ -13,14 +13,15 @@ public class TimelineController : MonoBehaviour
     
    public void Play()
     {
-        //CameraFree.m_YAxis.m_InputAxisName = "";
-        //CameraFree.m_XAxis.m_InputAxisName = "";
         CameraFree.SetActive(false);
         Rob.GetComponent<Grab>().enabled = false;
         Rob.GetComponent<Aiming>().enabled = false;
-        Rob.enabled = false;
-              
+        Rob.endMission();
+        Invoke("delayedPlay", 7f);      
         playable.Play();
 
+    }
+    public void delayedPlay() { 
+        Rob.enabled = false;
     }
 }

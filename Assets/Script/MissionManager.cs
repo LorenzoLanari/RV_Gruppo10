@@ -14,7 +14,7 @@ public class MissionManager : MonoBehaviour
         Givers[_active].transform.gameObject.SetActive(true);
     }
     public void NextMission() {
-        if (_active < Givers.Length - 1)
+        if (_active < Givers.Length - 1)      //Prossima missione
         {
             if (Givers[_active].questGoal.activeSelf)
                 Givers[_active].questGoal.SetActive(false);
@@ -24,7 +24,7 @@ public class MissionManager : MonoBehaviour
             _active++;
             Givers[_active].transform.gameObject.SetActive(true);
         }
-        else
+        else     //Finite le missioni, passaggio a cutscene e scena successiva
         {
             if (Givers[_active].mission.goal.goalType == GoalType.Puzzle)
             {
@@ -37,7 +37,7 @@ public class MissionManager : MonoBehaviour
             if (Givers[_active].questGoal.activeSelf)
                     Givers[_active].questGoal.SetActive(false);
 
-            foreach (GameObject acaro in acari)
+            foreach (GameObject acaro in acari)  //Distruggere tutti gli acari presenti nella scena
             {
                 if (acaro != null)
                 {
