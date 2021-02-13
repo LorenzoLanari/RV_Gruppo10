@@ -27937,10 +27937,6 @@ GameObject:
   - component: {fileID: 7190872651987590698}
   - component: {fileID: 6868692229175971526}
   - component: {fileID: 7190872651987590692}
-  - component: {fileID: 296793624307672492}
-  - component: {fileID: 6346385435036362007}
-  - component: {fileID: 4649668031178827017}
-  - component: {fileID: 7190872651987590697}
   m_Layer: 0
   m_Name: SchedaMadre
   m_TagString: Untagged
@@ -28111,85 +28107,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &296793624307672492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7927297672313640438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40500fcbacd12a94c8ec5331ca86cac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _navAgentPrefab: {fileID: 4102131692117853027, guid: 82377ad284fb95a4a838f770ece34530,
-    type: 3}
-  _navMeshAgentsToSpawn: 10
-  _groundCollider: {fileID: 3901784495304818973}
-  spawns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  manager: {fileID: 6346385435036362007}
---- !u!114 &6346385435036362007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7927297672313640438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80bd8b74af76c544fa4235aab36e7a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Givers:
-  - {fileID: 0}
-  - {fileID: 0}
-  acari: []
-  Healthbar: {fileID: 0}
-  Minimap: {fileID: 0}
-  DialogueCanvas: {fileID: 0}
---- !u!114 &4649668031178827017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7927297672313640438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6266c63bad252254e97a9aa66aca9e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playable: {fileID: 0}
-  CameraFree: {fileID: 0}
-  Rob: {fileID: 0}
---- !u!114 &7190872651987590697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7927297672313640438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a379647e7992957409fb4e02e47f2c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Missione2
-    sentences:
-    - fro
-    - cio
 --- !u!1 &7951403593256502361
 GameObject:
   m_ObjectHideFlags: 0
