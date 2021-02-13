@@ -649,6 +649,7 @@ MonoBehaviour:
   _minAttackDistance: 5
   _stoppingDistance: 2
   _animator: {fileID: 0}
+  Attacking: 0
 --- !u!195 &4102131692117853026
 NavMeshAgent:
   m_ObjectHideFlags: 0
