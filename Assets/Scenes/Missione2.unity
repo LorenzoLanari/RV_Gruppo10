@@ -535,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 6276367732783117342, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0010070801
+      value: -0.0009765625
       objectReference: {fileID: 0}
     - target: {fileID: 6628346012242187477, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
@@ -610,12 +610,12 @@ PrefabInstance:
     - target: {fileID: 8220532998448640160, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 33.86801
+      value: 33.868042
       objectReference: {fileID: 0}
     - target: {fileID: 8220532998448640160, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.4399948
+      value: 0.44000244
       objectReference: {fileID: 0}
     - target: {fileID: 8362905330181649804, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
@@ -645,7 +645,7 @@ PrefabInstance:
     - target: {fileID: 9209174475807366604, guid: b5c5666b9077c634799bebed47176407,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.4399948
+      value: 0.44000244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c5666b9077c634799bebed47176407, type: 3}
@@ -1068,7 +1068,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1712,6 +1712,34 @@ PrefabInstance:
       propertyPath: spawns.Array.data[9]
       value: 
       objectReference: {fileID: 6128559684143691104}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 'E'' proprio la freccetta del mouse, che bella!
+
+        Grazie per
+        aver aiutato la scheda video.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: "Il suo compito \xE8 quello di creare immagini e quindi visualizzare
+        testo e grafica sullo schermo,traducendo il flusso di dati provenienti dagli
+        ingressi in forme che il video pu\xF2 riconoscere."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: 'Ma non sono solo gli ingressi I/O l''unico contatto con l''esterno.
+
+        Ho
+        sentito infatti qualche movimento verso le porte USB, si trovano dalla parte
+        opposta della scheda madre.
+
+        Ti consiglio di andare a controllare!'
+      objectReference: {fileID: 0}
     - target: {fileID: 7190872651987590698, guid: d9ab170ecd6acea4891c6840a84d009b,
         type: 3}
       propertyPath: Rob
@@ -2144,7 +2172,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2160,7 +2188,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765369865}
-  m_LocalRotation: {x: 0.19424808, y: 0.000000016878642, z: -0.0000000033423064, w: 0.98095244}
+  m_LocalRotation: {x: 0.19424808, y: -0.000000016878642, z: 0.0000000033423064, w: 0.98095244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3295,7 +3323,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3311,7 +3339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327846588}
-  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3910,7 +3938,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5360,6 +5388,11 @@ PrefabInstance:
       objectReference: {fileID: 111008599}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
+      propertyPath: mission.title
+      value: Dagli ingressi alla scheda video
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
       propertyPath: descriptionText
       value: 
       objectReference: {fileID: 111008597}
@@ -5382,7 +5415,12 @@ PrefabInstance:
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
       propertyPath: mission.description
-      value: 
+      value: "E' stato mosso il cursore del mouse sullo schermo.\nL'oggetto che trovi
+        per terra contiene i segnali del cursore che sono stati acquisiti dalle unit\xE0
+        di Input/Output.\nGli ingressi Input ci permettono di comunicare all'elaboratore
+        il programma o le istruzioni da eseguire, mentre le uscite Output servono
+        per comunicarci i risultati dell'elaborazione del programma.\nPortali alla
+        scheda video per aiutarla a ricostruirlo correttamente!"
       objectReference: {fileID: 0}
     - target: {fileID: 3238208252972806574, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}

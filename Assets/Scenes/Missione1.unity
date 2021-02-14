@@ -1730,6 +1730,38 @@ PrefabInstance:
       propertyPath: Givers.Array.data[0]
       value: 
       objectReference: {fileID: 1609245361}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: 'Eccoti!
+
+        Qui ci troviamo alla RAM. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: "Il suo funzionamento pu\xF2 essere paragonato a quello di una lavagna:
+        infatti quando accendiamo il computer e lo utilizziamo \xE8 come se scrivessimo
+        i dati con un gessetto sulla lavagna."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: "Cos\xEC, come ci\xF2 che scriviamo rimane impresso sulla lavagna fino
+        a quando non lo cancelliamo, allo stesso modo i dati della RAM rimangono
+        memorizzati fino a quando non spegniamo il computer."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
+      value: La RAM ora ha preso in carica il SO e l'ha scomposto nelle diverse istruzioni
+        necessarie alla CPU. Scopri cosa farne nella prossima missione!
+      objectReference: {fileID: 0}
     - target: {fileID: 7190872651987590698, guid: d9ab170ecd6acea4891c6840a84d009b,
         type: 3}
       propertyPath: Rob
@@ -2500,12 +2532,12 @@ PrefabInstance:
     - target: {fileID: 2462011067440540527, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016878642
+      value: -0.000000016878642
       objectReference: {fileID: 0}
     - target: {fileID: 2462011067440540527, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000033423064
+      value: 0.0000000033423064
       objectReference: {fileID: 0}
     - target: {fileID: 2462011068328783629, guid: 51d636b16ef98cb4787aa1f9fc6e1a4f,
         type: 3}
@@ -2723,6 +2755,11 @@ PrefabInstance:
       objectReference: {fileID: 4719214594016399635}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
+      propertyPath: mission.title
+      value: Da SO a RAM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
       propertyPath: descriptionText
       value: 
       objectReference: {fileID: 4719214594016399633}
@@ -2731,6 +2768,11 @@ PrefabInstance:
       propertyPath: mission.goal.var
       value: 
       objectReference: {fileID: 807061523}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
+      propertyPath: mission.isActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
       propertyPath: mission.SpawnZone
@@ -2745,7 +2787,15 @@ PrefabInstance:
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
       propertyPath: mission.description
-      value: consegnalo
+      value: "Benvenuto Rob! Ti stavo aspettando!\n Siamo all'interno della Scheda
+        Madre, il cuore del computer che usiamo tutti i giorni e ti aspetta un viaggio
+        alla sua scoperta!\n Sei pronto? Iniziamo!\n Sai qual \xE8 la prima cosa
+        che entra in gioco quando si accende un computer?\n Il Sistema Operativo!
+        \nE' come un esperto che si pone tra noi e il computer trasformando in comandi
+        semplici operazioni molto complesse che il pc esegue. E' in questo modo che
+        tutte le risorse necessarie diventano disponibili.\nQuesto pacchetto contiene
+        proprio il SO. Raccoglilo premendo il tasto E e portalo alla RAM. \nTi aspetto
+        l\xEC!"
       objectReference: {fileID: 0}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}

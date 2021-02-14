@@ -957,7 +957,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1613,7 +1613,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2000,6 +2000,29 @@ PrefabInstance:
       propertyPath: spawns.Array.data[9]
       value: 
       objectReference: {fileID: 1823166922}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: "Eccoti! \nComplimenti Rob hai completato anche l'ultima missione."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: "Ora il file pu\xF2 arrivare all'Hard Disk, l'unit\xE0 di memoria di
+        massa principale per memorizzare i dati, in cui \xE8 possibile leggere e
+        registrare le informazioni e dove vengono memorizzati il SO e i programmi
+        applicativi."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190872651987590696, guid: d9ab170ecd6acea4891c6840a84d009b,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: 'Il tuo viaggio per ora termina qui.
+
+        Spero di esserti stato
+        di aiuto!
+
+        Alla prossima!'
+      objectReference: {fileID: 0}
     - target: {fileID: 7190872651987590698, guid: d9ab170ecd6acea4891c6840a84d009b,
         type: 3}
       propertyPath: Rob
@@ -2426,7 +2449,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2442,7 +2465,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327846588}
-  m_LocalRotation: {x: 0.22975291, y: 0.0000000187227, z: -0.0000000044198294, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: -0.0000000187227, z: 0.0000000044198294, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2899,7 +2922,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.7783375, y: 1}
+    m_SensorSize: {x: 1.3512337, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3662,6 +3685,11 @@ PrefabInstance:
       objectReference: {fileID: 111008599}
     - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
+      propertyPath: mission.title
+      value: Da USB ad Hard Disk
+      objectReference: {fileID: 0}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
       propertyPath: descriptionText
       value: 
       objectReference: {fileID: 111008597}
@@ -3681,6 +3709,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3926730232874501606, guid: b526be982ecc0fd418916779051d8570,
         type: 3}
+    - target: {fileID: 3238208252972806572, guid: 828b87b520243314a91c07aa733270e1,
+        type: 3}
+      propertyPath: mission.description
+      value: "Finalmente sei arrivato!\nQui ci troviamo alle porte USB, interfaccia
+        usata per collegare dispositivi periferici esterni!\nQuesta lettera \xE8
+        stata inserita attraverso una chiavetta USB, e vuole essere memorizzata all'interno
+        dell'Hard Disk.\nPresto, prendila e portala all'uscita dell' Hard Disk!\nTi
+        consiglio di passare tra le schede di audio e rete per evitare gli acari!\n\n"
+      objectReference: {fileID: 0}
     - target: {fileID: 3238208252972806574, guid: 828b87b520243314a91c07aa733270e1,
         type: 3}
       propertyPath: m_RootOrder
