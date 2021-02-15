@@ -13,7 +13,7 @@ public class Pickable : MonoBehaviour
     void Start()
     {
        
-        rob = GameObject.Find("Rob").GetComponent<Grab>();
+        rob = GameObject.FindGameObjectWithTag("Player").GetComponent<Grab>();
         
     }
 
