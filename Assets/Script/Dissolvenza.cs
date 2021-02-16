@@ -12,6 +12,10 @@ public class Dissolvenza : MonoBehaviour
     {
         DissolvenzaAnimator.SetTrigger("start");
     }
+    public void ReloadLevel()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
+    }
 
     public void LoadNextLevel()
     {
@@ -20,8 +24,10 @@ public class Dissolvenza : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        DissolvenzaAnimator.SetTrigger("start");
+        //DissolvenzaAnimator.SetTrigger("start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }
+
+   
 }

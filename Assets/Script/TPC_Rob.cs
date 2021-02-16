@@ -95,9 +95,9 @@ public class TPC_Rob : MonoBehaviour
                     if (!shooting)
                     {
 
-                     _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));
+                     _rigidbody.MoveRotation(Quaternion.LookRotation(newDir));                 
                      _rigidbody.MovePosition(_rigidbody.position + transform.forward * _inputSpeed * _speed * Time.fixedDeltaTime);
-               
+                    
                     }
                     else
                     {

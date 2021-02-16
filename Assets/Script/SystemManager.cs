@@ -7,18 +7,26 @@ public class SystemManager : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameObject Rob;
+    public Dissolvenza dissolvenza;
+    private bool load = false;
     void Start()
     {
         Rob = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void Awake()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Rob.GetComponent<TPC_Rob>().dead)
+        if (Rob.GetComponent<TPC_Rob>().dead && !load)
         {
-            Invoke("LoadSceneOnDeath", 10f);
+            load = true;
+            Invoke("LoadSceneOnDeath", 7f);
         }
 
 
@@ -26,6 +34,7 @@ public class SystemManager : MonoBehaviour
 
     public void LoadSceneOnDeath()
     {
-        SceneManager.LoadScene("Rob_Scene_2");
+        
+        dissolvenza.ReloadLevel();
     }
 }
