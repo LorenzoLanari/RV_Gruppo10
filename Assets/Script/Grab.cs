@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Grab : MonoBehaviour
 {
     public GameObject LetterE;
@@ -72,6 +73,7 @@ public class Grab : MonoBehaviour
             }
             else if(canGrab && !grabbing)
             {
+                
                 _rigidbody.isKinematic = true;
                 Invoke("transport", 3f);
                 Invoke("pickup", 6f);

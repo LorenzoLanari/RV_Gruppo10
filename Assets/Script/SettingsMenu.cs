@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Play("Soundtrack");
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();

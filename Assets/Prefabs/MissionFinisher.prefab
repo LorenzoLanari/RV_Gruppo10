@@ -61,6 +61,7 @@ MonoBehaviour:
   Rob: {fileID: 0}
   missionComplete: {fileID: 0}
   manager: {fileID: 0}
+  Arrow: {fileID: 0}
 --- !u!65 &7373745073284047075
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a6dff816206452f43a6cc0714dfad07c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.01
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6dff816206452f43a6cc0714dfad07c,
         type: 3}

@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Pickable : MonoBehaviour
 {
     
 
     private Grab rob;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
-       
+
         rob = GameObject.FindGameObjectWithTag("Player").GetComponent<Grab>();
         
     }

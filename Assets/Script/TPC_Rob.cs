@@ -82,7 +82,7 @@ public class TPC_Rob : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && !jumping && !dancing && !_grab.grabbing)
                 {
                     jumping = true;
-                    FindObjectOfType<AudioManager>().Play("Jump");
+                    
                     HandleJumping();
 
                 } 
@@ -200,6 +200,7 @@ public class TPC_Rob : MonoBehaviour
     private IEnumerator ActualJump(float jumpingWait , float landingWait) {
         _animator.SetBool("grounded", false);
         yield return new WaitForSeconds(jumpingWait);
+        FindObjectOfType<AudioManager>().Play("Jump");
         _rigidbody.velocity = new Vector3(newDir.x*_inputSpeed*1.7f , CalculateVerticalJump(),newDir.z*_inputSpeed*1.7f);
         Invoke("Land", landingWait);        
     }

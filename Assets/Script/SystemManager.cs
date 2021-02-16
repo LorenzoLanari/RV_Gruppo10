@@ -8,24 +8,22 @@ public class SystemManager : MonoBehaviour
     // Start is called before the first frame update
     private GameObject Rob;
     public Dissolvenza dissolvenza;
-    private bool load = false;
-    void Start()
+    
+    void Awake()
     {
+        FindObjectOfType<AudioManager>().Play("Soundtrack");
         Rob = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void Awake()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Rob.GetComponent<TPC_Rob>().dead && !load)
+        if (Rob.GetComponent<TPC_Rob>().dead )
         {
-            load = true;
+            
             Invoke("LoadSceneOnDeath", 7f);
         }
 
