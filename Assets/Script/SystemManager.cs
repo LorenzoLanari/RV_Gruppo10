@@ -8,11 +8,10 @@ public class SystemManager : MonoBehaviour
     // Start is called before the first frame update
     private GameObject Rob;
     public Dissolvenza dissolvenza;
-    
+    public GameObject deadText;
     void Awake()
     {
         
-        Invoke("PlayTheme", 2f);
         Rob = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -24,7 +23,7 @@ public class SystemManager : MonoBehaviour
 
         if (Rob.GetComponent<TPC_Rob>().dead )
         {
-            
+            deadText.SetActive(true);
             Invoke("LoadSceneOnDeath", 7f);
         }
 

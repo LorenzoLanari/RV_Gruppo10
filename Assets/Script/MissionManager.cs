@@ -49,10 +49,10 @@ public class MissionManager : MonoBehaviour
                 }
             }
             gameObject.GetComponent<TimelineController>().Play();
-            gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            Invoke("DelayDialogue",7f);
             FindObjectOfType<AudioManager>().Stop("Rob_Drums");
             FindObjectOfType<AudioManager>().Play("Rob_theme");
-            HandleUI();
+            
         }
             
     }
@@ -68,5 +68,11 @@ public class MissionManager : MonoBehaviour
         Healthbar.SetActive(false);
         Minimap.SetActive(false);
         DialogueCanvas.SetActive(true);
+    }
+
+    public void DelayDialogue() {
+       
+        gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+        HandleUI();
     }
 }

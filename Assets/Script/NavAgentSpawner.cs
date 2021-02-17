@@ -44,7 +44,4 @@ public class NavAgentSpawner : MonoBehaviour
         return spawns[circularBuffer++].position;
     }
 
-    public void assignWaypoint(GameObject agent, int pos) {
-        
-    }
 }

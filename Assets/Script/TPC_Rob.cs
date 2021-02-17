@@ -14,6 +14,7 @@ public class TPC_Rob : MonoBehaviour
 
     public Mission mission;
     public LayerMask groundCheckMask;
+    private Vector3 spawnPoint;
     private Grab _grab;
     private Rigidbody _rigidbody;
     private Vector3 _inputVector;
@@ -33,7 +34,7 @@ public class TPC_Rob : MonoBehaviour
 
     void Start()
     {
-
+        spawnPoint = transform.position;
         _rigidbody = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         _grab = GetComponent<Grab>();
@@ -140,6 +141,10 @@ public class TPC_Rob : MonoBehaviour
             Invoke("Stop_Dancing", 7f);
         }
 
+        if (Input.GetKeyDown(KeyCode.R)) { 
+            Respawn();
+            
+        }
     }
 
     private void updateAnimations() {
@@ -208,6 +213,10 @@ public class TPC_Rob : MonoBehaviour
     private float CalculateVerticalJump()
     {
         return Mathf.Sqrt(2 * jumpHeight * gravity);
+    }
+
+    public void Respawn() {
+        transform.position= spawnPoint;
     }
 
     public void endMission() {

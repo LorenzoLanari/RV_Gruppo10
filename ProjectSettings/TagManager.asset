@@ -9,6 +9,7 @@ TagManager:
   - UINameHolder
   - QuestDestination
   - DropZone
+  - DeadText
   layers:
   - Default
   - TransparentFX
