@@ -92,3 +92,9 @@ MonoBehaviour:
     pitch: 0.69
     loop: 0
     source: {fileID: 0}
+  - name: Dance
+    clip: {fileID: 8300000, guid: d06f771df3af7644fbc272e5d1fcb126, type: 3}
+    volume: 0.791
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

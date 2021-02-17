@@ -51,7 +51,7 @@ public class MissionManager : MonoBehaviour
             gameObject.GetComponent<TimelineController>().Play();
             Invoke("DelayDialogue",7f);
             FindObjectOfType<AudioManager>().Stop("Rob_Drums");
-            FindObjectOfType<AudioManager>().Play("Rob_theme");
+            FindObjectOfType<AudioManager>().Play("Dance");
             
         }
             
@@ -74,5 +74,7 @@ public class MissionManager : MonoBehaviour
        
         gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
         HandleUI();
+        FindObjectOfType<AudioManager>().Stop("Dance");
+        FindObjectOfType<AudioManager>().Play("Rob_theme");
     }
 }
