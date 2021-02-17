@@ -3206,6 +3206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Comandi
       objectReference: {fileID: 0}
+    - target: {fileID: 6506084908007774596, guid: 048e86e038c1b5648a58fb44665a5020,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 048e86e038c1b5648a58fb44665a5020, type: 3}
 --- !u!224 &5815211616854119945 stripped

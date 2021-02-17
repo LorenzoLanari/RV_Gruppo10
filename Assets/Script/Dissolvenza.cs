@@ -19,12 +19,13 @@ public class Dissolvenza : MonoBehaviour
 
     public void LoadNextLevel()
     {
+       
        StartCoroutine( LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        //DissolvenzaAnimator.SetTrigger("start");
+        
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }

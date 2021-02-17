@@ -42,7 +42,7 @@ public class Laser : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width*0.5f,Screen.height*0.5f));
         if (Physics.Raycast(ray, out hit, range))
         {
-            GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
+            GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, Quaternion.Euler(0f,90f,0f)) as GameObject;
             _src_audio_laser.PlayOneShot(_src_audio_laser.clip);
          
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);

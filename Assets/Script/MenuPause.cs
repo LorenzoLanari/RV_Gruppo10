@@ -50,7 +50,8 @@ public class MenuPause : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("Rob_Scene_2");
+        FindObjectOfType<AudioManager>().Stop("Rob_theme");
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()

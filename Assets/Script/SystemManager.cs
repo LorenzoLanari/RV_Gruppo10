@@ -11,11 +11,12 @@ public class SystemManager : MonoBehaviour
     
     void Awake()
     {
-        FindObjectOfType<AudioManager>().Play("Soundtrack");
+        
+        Invoke("PlayTheme", 2f);
         Rob = GameObject.FindGameObjectWithTag("Player");
     }
 
-    
+   
 
     // Update is called once per frame
     void Update()
@@ -34,5 +35,10 @@ public class SystemManager : MonoBehaviour
     {
         
         dissolvenza.ReloadLevel();
+    }
+
+    public void PlayTheme()
+    {
+        FindObjectOfType<AudioManager>().Play("Rob_Drums");
     }
 }

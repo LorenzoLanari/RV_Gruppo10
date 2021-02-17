@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    public Dissolvenza dissolvenza;
     public void PlayGame()
     {
-        SceneManager.LoadScene("Rob_Scene");
+        FindObjectOfType<AudioManager>().Stop("Soundtrack");
+        dissolvenza.gameObject.SetActive(true);
+        dissolvenza.LoadNextLevel();
     }
    
     public void QuitGame()

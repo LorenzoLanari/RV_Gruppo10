@@ -50,6 +50,8 @@ public class MissionManager : MonoBehaviour
             }
             gameObject.GetComponent<TimelineController>().Play();
             gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+            FindObjectOfType<AudioManager>().Stop("Rob_Drums");
+            FindObjectOfType<AudioManager>().Play("Rob_theme");
             HandleUI();
         }
             

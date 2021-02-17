@@ -53,6 +53,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        FindObjectOfType<AudioManager>().Stop("Rob_theme");
+     
         dissolvenza.gameObject.SetActive(true);
         dissolvenza.LoadNextLevel();
     }
