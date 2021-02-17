@@ -50,8 +50,9 @@ public class MenuPause : MonoBehaviour
 
     public void LoadMenu()
     {
-        FindObjectOfType<AudioManager>().Stop("Rob_theme");
-        SceneManager.LoadScene("Menu");
+        FindObjectOfType<AudioManager>().Stop("Rob_Drums");
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()

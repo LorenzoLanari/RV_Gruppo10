@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         FindObjectOfType<AudioManager>().Stop("Soundtrack");
-        dissolvenza.gameObject.SetActive(true);
         dissolvenza.LoadNextLevel();
     }
    

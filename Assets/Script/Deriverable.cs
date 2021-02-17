@@ -18,6 +18,7 @@ public class Deriverable : MonoBehaviour
         
         if(Rob != null)
         {
+            FindObjectOfType<AudioManager>().Play("Item");
             transform.gameObject.SetActive(false);
             Rob.collected = true;
         }

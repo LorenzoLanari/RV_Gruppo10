@@ -11,7 +11,7 @@ public class SystemManager : MonoBehaviour
     public GameObject deadText;
     void Awake()
     {
-        
+        Invoke("PlayTheme", 2f);
         Rob = GameObject.FindGameObjectWithTag("Player");
     }
 

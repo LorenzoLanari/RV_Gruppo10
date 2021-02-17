@@ -33,6 +33,7 @@ public class MissionGiver : MonoBehaviour
     {
         if(other == Rob.GetComponent<Collider>())
         {
+            FindObjectOfType<AudioManager>().Play("QuestPopup");
             OpenQuestWindow();
             Time.timeScale = 0f;
         }

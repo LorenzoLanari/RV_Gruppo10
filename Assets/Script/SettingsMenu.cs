@@ -12,9 +12,9 @@ public class SettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
-    private void Start()
+    private void Awake()
     {
-        FindObjectOfType<AudioManager>().Play("Soundtrack");
+        Invoke("PlaySoundtrack", 1.5f);
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -52,5 +52,11 @@ public class SettingsMenu : MonoBehaviour
     public void SetQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void PlaySoundtrack()
+    {
+        Debug.Log("qua");
+        FindObjectOfType<AudioManager>().Play("Soundtrack");
     }
 }
