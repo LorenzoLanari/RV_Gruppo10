@@ -35,7 +35,7 @@ public class MissionManager : MonoBehaviour
                 Time.timeScale = 1f;
                 Cursor.visible = false;
                 Givers[_active].puzzleWindow.SetActive(false);
-
+               
                 
 
             }

@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Missione1.2.unity
     guid: 33440a334e9f2c743b954977881db48b
   - enabled: 1
+    path: Assets/Scenes/Video2.unity
+    guid: 3dea8db212b4a8a499bcde9b8b6667a8
+  - enabled: 1
     path: Assets/Scenes/Missione2.unity
     guid: 3e6119be45331a446b283c0b83219740
+  - enabled: 1
+    path: Assets/Scenes/Video3.unity
+    guid: 801a2e3d7159bbe49b8783eee1fdd828
   - enabled: 1
     path: Assets/Scenes/Missione3.unity
     guid: faf820fb603057f42add0a1472877d13
