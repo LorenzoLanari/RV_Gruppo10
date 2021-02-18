@@ -46,55 +46,71 @@ MonoBehaviour:
   Sounds:
   - name: Jump
     clip: {fileID: 8300000, guid: 237d133311b791144b2c8fbe9dec2995, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.732
     pitch: 1.43
     loop: 0
     source: {fileID: 0}
   - name: Damage
     clip: {fileID: 8300000, guid: f6d477ca99165b346a5df418a87db50f, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.479
     pitch: 1.13
     loop: 0
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 14d4c4f3c6e58b44f83e6456d548ca76, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.281
     pitch: 1.52
     loop: 0
     source: {fileID: 0}
   - name: Soundtrack
     clip: {fileID: 8300000, guid: 0f4a4f5f9bb1c7747a91467dc116c194, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.732
     pitch: 1.01
     loop: 1
     source: {fileID: 0}
   - name: Rob_Drums
     clip: {fileID: 8300000, guid: 9e414192a444cf24dabfec0a6a4d5dc7, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.115
     pitch: 1.01
     loop: 1
     source: {fileID: 0}
   - name: Rob_theme
     clip: {fileID: 8300000, guid: a427a4100f2a9f04faeb3eb1df9ab599, type: 3}
+    audioMixerGroup: {fileID: 0}
     volume: 0.115
     pitch: 1.01
     loop: 1
     source: {fileID: 0}
   - name: QuestPopup
     clip: {fileID: 8300000, guid: c5930a987fd2c3248a5315e3843f5d7c, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.626
     pitch: 1.01
     loop: 0
     source: {fileID: 0}
   - name: Item
     clip: {fileID: 8300000, guid: 4b302c97c5293ac4b86a619075cd3b5e, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.495
-    pitch: 0.69
+    pitch: 0.88
     loop: 0
     source: {fileID: 0}
   - name: Dance
-    clip: {fileID: 8300000, guid: d06f771df3af7644fbc272e5d1fcb126, type: 3}
+    clip: {fileID: 8300000, guid: 8b94818b41bc8794291522cc0c5b552d, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.791
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: ItemDrop
+    clip: {fileID: 8300000, guid: 4b302c97c5293ac4b86a619075cd3b5e, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
+    volume: 0.791
+    pitch: 0.31
+    loop: 0
     source: {fileID: 0}

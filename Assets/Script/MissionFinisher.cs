@@ -9,18 +9,22 @@ public class MissionFinisher : MonoBehaviour
     public TPC_Rob Rob;
     public GameObject missionComplete;
     public MissionManager manager;
-    public GameObject Arrow;
+   
 
-    private float StartPositionY;
+    private MissionWaypoint waypoint;
 
     private void Start()
     {
-        StartPositionY = Arrow.transform.position.y;
-        Sequence moveSequence = DOTween.Sequence();
-        moveSequence.Append(Arrow.transform.DOMoveY(StartPositionY + 1.5f, 2f));
-        moveSequence.Append(Arrow.transform.DOMoveY(StartPositionY, 2f));
-        moveSequence.SetLoops(-1);
-        moveSequence.Play();
+        waypoint = gameObject.GetComponent<MissionWaypoint>();
+
+        if (waypoint != null)
+        {
+            ActivateWaypoint(true);
+            SetWaypoint(waypoint.target);
+        }
+       
+        
+        
     }
     public void MissionComplete()
     {
@@ -29,7 +33,10 @@ public class MissionFinisher : MonoBehaviour
         Invoke("Cleaner", 2f);
         if(mission.goal.goalType == GoalType.Deliver)
             Rob.GetComponent<Grab>().enabled = false;
-        
+
+        if (waypoint != null)
+            ActivateWaypoint(false);
+
         manager.NextMission();
         gameObject.SetActive(false);
 
@@ -39,4 +46,14 @@ public class MissionFinisher : MonoBehaviour
     {
         missionComplete.SetActive(false);
     } 
+
+    public void SetWaypoint(Transform target)
+    {
+        waypoint.target = target;
+    }
+
+    public void ActivateWaypoint(bool state)
+    {
+        waypoint.img.gameObject.SetActive(state);
+    }
 }

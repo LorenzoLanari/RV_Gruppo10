@@ -7,11 +7,24 @@ public class Portal : MonoBehaviour
     public Transform Destination;
     public Dissolvenza dissolvenza;
     private TPC_Rob Rob;
+    public MissionFinisher Finisher;
+    public bool Enter;
+
     private void OnTriggerEnter(Collider other)
     {
         Rob = other.GetComponent<TPC_Rob>();
         if(Rob != null && Rob.mission.isActive)
         {
+            if (Enter)
+            {
+                Finisher.ActivateWaypoint(false);
+            }
+            else
+            {
+                Finisher.ActivateWaypoint(true);
+                Finisher.SetWaypoint(Finisher.gameObject.transform);
+            }
+
             dissolvenza.gameObject.SetActive(true);
             Rob.GetComponent<Grab>().enabled = false;
             Rob.enabled = false;

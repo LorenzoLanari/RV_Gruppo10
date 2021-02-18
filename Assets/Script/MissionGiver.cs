@@ -42,6 +42,7 @@ public class MissionGiver : MonoBehaviour
 
     public void OpenQuestWindow()
     {
+        Cursor.visible = true;
         questWindow.SetActive(true);
         titleText.text = mission.title;
         descriptionText.text = mission.description;
@@ -49,6 +50,7 @@ public class MissionGiver : MonoBehaviour
 
     public void AcceptMission()
     {
+        Cursor.visible = false;
         questWindow.SetActive(false);
         mission.isActive = true;
         Rob.mission = mission;

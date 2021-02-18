@@ -18,7 +18,7 @@ public class DropZone : MonoBehaviour
         {
             if (other == Box.GetComponent<Collider>())
             {
-           
+                FindObjectOfType<AudioManager>().Play("ItemDrop");
                 Box.GetComponent<Pickable>().SetCanDrop(true);
             }
 
@@ -30,6 +30,7 @@ public class DropZone : MonoBehaviour
             {
                 if (finisher.Rob.collected)
                 {
+                    FindObjectOfType<AudioManager>().Play("ItemDrop");
                     finisher.mission.goal.ItemCollected();
                     finisher.Rob.collected = false;
                     if (finisher.mission.goal.IsReached())

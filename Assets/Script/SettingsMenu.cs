@@ -56,7 +56,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void PlaySoundtrack()
     {
-        Debug.Log("qua");
+       
         FindObjectOfType<AudioManager>().Play("Soundtrack");
     }
 }

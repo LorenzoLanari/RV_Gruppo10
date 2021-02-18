@@ -22,6 +22,7 @@ public class MenuPause : MonoBehaviour
             {
                 if(GameIsPaused)
                 {
+
                     Resume();
                 }
                 else
@@ -36,6 +37,7 @@ public class MenuPause : MonoBehaviour
 
     public void Pause()
     {
+        Cursor.visible = true;
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -43,6 +45,7 @@ public class MenuPause : MonoBehaviour
 
     public void Resume()
     {
+        Cursor.visible = false;
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;

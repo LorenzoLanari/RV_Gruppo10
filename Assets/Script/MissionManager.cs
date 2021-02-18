@@ -33,6 +33,7 @@ public class MissionManager : MonoBehaviour
             if (Givers[_active].mission.goal.goalType == GoalType.Puzzle)
             {
                 Time.timeScale = 1f;
+                Cursor.visible = false;
                 Givers[_active].puzzleWindow.SetActive(false);
 
                 
@@ -68,6 +69,7 @@ public class MissionManager : MonoBehaviour
         Healthbar.SetActive(false);
         Minimap.SetActive(false);
         DialogueCanvas.SetActive(true);
+        Cursor.visible = true;
     }
 
     public void DelayDialogue() {
