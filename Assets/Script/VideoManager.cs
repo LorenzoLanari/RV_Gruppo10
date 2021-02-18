@@ -8,13 +8,12 @@ public class VideoManager : MonoBehaviour
     private VideoPlayer video;
     public Dissolvenza dissolvenza;
     
-    void Start()
+    void Awake()
     {
+        Cursor.visible = false;
+        dissolvenza.gameObject.SetActive(true);
         video = gameObject.GetComponent<VideoPlayer>();
-        
-            dissolvenza.gameObject.SetActive(true);
-           
-        
+  
     }
     
 

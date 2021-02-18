@@ -21,7 +21,7 @@ public class MissionWaypoint : MonoBehaviour
         float maxY = Screen.height - minY;
 
         Vector2 pos = Camera.main.WorldToScreenPoint(target.position + Offset);
-        if(Vector3.Dot((target.position - Rob.transform.position).normalized,Rob.transform.forward) < 0)
+        if(Vector3.Dot((target.position - Rob.transform.position).normalized,Camera.main.transform.forward) < 0)
         {
             if(pos.x < Screen.width / 2)
             {
