@@ -60,8 +60,8 @@ public class MissionGiver : MonoBehaviour
         mission.SpawnZone.Spawn();
        
         questGoal.SetActive(true);
-        fisso.text = mission.goal.toolTip + " " + mission.goal.requiredAmount;
-        variabile.text =  mission.goal.currentAmount.ToString();
+        fisso.text = mission.goal.toolTip;
+        variabile.text =  mission.goal.currentAmount.ToString() + " / " + mission.goal.requiredAmount.ToString(); 
         transform.gameObject.SetActive(false);
         Finisher.transform.gameObject.SetActive(true);
         Finisher.mission = mission;

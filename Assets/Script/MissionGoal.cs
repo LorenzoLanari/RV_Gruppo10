@@ -23,7 +23,7 @@ public class MissionGoal
         if(goalType == GoalType.Deliver || goalType == GoalType.Handin)
         {
            currentAmount++;
-           var.text =  currentAmount.ToString();
+           var.text =  currentAmount.ToString() + " / " + requiredAmount.ToString(); ;
         }
            
     }
