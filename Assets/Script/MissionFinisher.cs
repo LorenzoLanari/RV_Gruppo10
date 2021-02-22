@@ -29,6 +29,7 @@ public class MissionFinisher : MonoBehaviour
     public void MissionComplete()
     {
         mission.isActive = false;  
+
         missionComplete.SetActive(true);
         Invoke("Cleaner", 2f);
         if(mission.goal.goalType == GoalType.Deliver)

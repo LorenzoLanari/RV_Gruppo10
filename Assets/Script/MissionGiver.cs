@@ -13,6 +13,7 @@ public class MissionGiver : MonoBehaviour
     public GameObject puzzleWindow;
     public GameObject questWindow;
     public GameObject questGoal;
+    public GameObject Path;
     public Text titleText;
     public Text descriptionText;
     public Text fisso;
@@ -53,6 +54,7 @@ public class MissionGiver : MonoBehaviour
         Cursor.visible = false;
         questWindow.SetActive(false);
         mission.isActive = true;
+        Path.SetActive(true);
         Rob.mission = mission;
         Time.timeScale = 1f;
         

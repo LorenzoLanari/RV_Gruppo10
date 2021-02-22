@@ -49,6 +49,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.732
     pitch: 1.43
+    Spatial3D: 0
     loop: 0
     source: {fileID: 0}
   - name: Damage
@@ -56,6 +57,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.584
     pitch: 1.13
+    Spatial3D: 0
     loop: 0
     source: {fileID: 0}
   - name: Death
@@ -63,6 +65,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.717
     pitch: 1.52
+    Spatial3D: 0
     loop: 0
     source: {fileID: 0}
   - name: Soundtrack
@@ -70,6 +73,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.732
     pitch: 1.01
+    Spatial3D: 0
     loop: 1
     source: {fileID: 0}
   - name: Rob_Drums
@@ -77,6 +81,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.242
     pitch: 1.01
+    Spatial3D: 0
     loop: 1
     source: {fileID: 0}
   - name: Rob_theme
@@ -84,6 +89,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 0}
     volume: 0.115
     pitch: 1.01
+    Spatial3D: 0
     loop: 1
     source: {fileID: 0}
   - name: QuestPopup
@@ -91,6 +97,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.626
     pitch: 1.01
+    Spatial3D: 0
     loop: 0
     source: {fileID: 0}
   - name: Item
@@ -98,6 +105,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.68
     pitch: 0.88
+    Spatial3D: 0
     loop: 0
     source: {fileID: 0}
   - name: Dance
@@ -105,6 +113,7 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.791
     pitch: 1
+    Spatial3D: 0
     loop: 1
     source: {fileID: 0}
   - name: ItemDrop
@@ -112,5 +121,14 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
     volume: 0.67
     pitch: 0.31
+    Spatial3D: 0
     loop: 0
+    source: {fileID: 0}
+  - name: Bolt
+    clip: {fileID: 8300000, guid: 3bed7d72cc89fea45bedcdced82a4527, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
+    volume: 0.676
+    pitch: 0.89
+    Spatial3D: 1
+    loop: 1
     source: {fileID: 0}

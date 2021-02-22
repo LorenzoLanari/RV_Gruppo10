@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 430986}
   - component: {fileID: 12080208}
   - component: {fileID: 11413728}
+  - component: {fileID: 2859328440100907331}
   m_Layer: 0
   m_Name: SimpleLightningBoltAnimatedPrefab
   m_TagString: Untagged
@@ -221,3 +222,15 @@ MonoBehaviour:
   Rows: 8
   Columns: 1
   AnimationMode: 3
+--- !u!114 &2859328440100907331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0676a9eb8994044974af592f9dccc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

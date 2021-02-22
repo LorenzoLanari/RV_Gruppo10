@@ -22,8 +22,8 @@ public class MissionManager : MonoBehaviour
         {
             if (Givers[_active].questGoal.activeSelf)
                 Givers[_active].questGoal.SetActive(false);
-
-            
+            if(Givers[_active].Path.activeSelf)
+                Givers[_active].Path.SetActive(false);
 
             _active++;
             Givers[_active].transform.gameObject.SetActive(true);
