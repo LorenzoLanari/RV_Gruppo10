@@ -28,7 +28,7 @@ public class Bolt : MonoBehaviour
          
         if( Acaro != null)
         {
-            Debug.Log("Acaro");
+           
             Acaro.TakeDamage(5);
         }
        
