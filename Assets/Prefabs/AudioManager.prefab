@@ -127,7 +127,7 @@ MonoBehaviour:
   - name: Bolt
     clip: {fileID: 8300000, guid: 3bed7d72cc89fea45bedcdced82a4527, type: 3}
     audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
-    volume: 0.676
+    volume: 0.793
     pitch: 0.89
     Spatial3D: 1
     loop: 1
