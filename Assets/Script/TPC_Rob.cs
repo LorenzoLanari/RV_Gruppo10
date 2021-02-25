@@ -66,6 +66,7 @@ public class TPC_Rob : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("Death");
             dead = true;
+            shooting = false;
         }
 
 
