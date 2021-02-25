@@ -9,6 +9,7 @@ public class MenuPause : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     public GameObject Comandi;
+    public GameObject QuestWindow;
 
 
 
@@ -17,20 +18,24 @@ public class MenuPause : MonoBehaviour
     {
         if (!Comandi.activeSelf)
         {
-
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (!QuestWindow.activeSelf)
             {
-                if(GameIsPaused)
-                {
 
-                    Resume();
-                }
-                else
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    Pause();
+                    if(GameIsPaused)
+                    {
+
+                        Resume();
+                    }
+                    else
+                    {
+                        Pause();
+                    }
                 }
             }
         }
+
 
 
     }
