@@ -38,4 +38,9 @@ public class Bolt : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Bolt");
     }
+
+    private void OnDisable()
+    {
+        FindObjectOfType<AudioManager>().Stop("Bolt");
+    }
 }

@@ -6,6 +6,11 @@ using DG.Tweening;
 public class Ventola : MonoBehaviour
 {
     public bool GPU;
+    void Awake()
+    {
+        Invoke("PlayNoise", 1.5f);
+
+    }
 
     // Update is called once per frame
     void Start()
@@ -15,5 +20,11 @@ public class Ventola : MonoBehaviour
            else
             transform.DORotate(new Vector3( 360f, 0f,0f), 0.005f, RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Restart);
 
+    }
+
+    public void PlayNoise()
+    {
+
+        FindObjectOfType<AudioManager>().Play("Ventola");
     }
 }

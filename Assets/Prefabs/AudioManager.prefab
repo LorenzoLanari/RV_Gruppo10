@@ -132,3 +132,11 @@ MonoBehaviour:
     Spatial3D: 1
     loop: 1
     source: {fileID: 0}
+  - name: Ventola
+    clip: {fileID: 8300000, guid: 870857ba872e82245883c08d23fa8501, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 133414acc37530242b75f192883ee728, type: 2}
+    volume: 0.769
+    pitch: 0.99
+    Spatial3D: 0.665
+    loop: 0
+    source: {fileID: 0}

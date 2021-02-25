@@ -41,6 +41,8 @@ public class MissionManager : MonoBehaviour
             }
             if (Givers[_active].questGoal.activeSelf)
                     Givers[_active].questGoal.SetActive(false);
+            if (Givers[_active].Path.activeSelf)
+                Givers[_active].Path.SetActive(false);
 
             foreach (GameObject acaro in acari)  //Distruggere tutti gli acari presenti nella scena
             {
@@ -49,6 +51,7 @@ public class MissionManager : MonoBehaviour
                     Destroy(acaro);
                 }
             }
+
             gameObject.GetComponent<TimelineController>().Play();
             Invoke("DelayDialogue",7f);
             FindObjectOfType<AudioManager>().Stop("Rob_Drums");
