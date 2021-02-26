@@ -63,9 +63,9 @@ public class TPC_Rob : MonoBehaviour
         _targetDirection = _cameraT.TransformDirection(_inputVector).normalized;
         _targetDirection.y = 0f;
 
-        if(health.GetCurrentHealth() == 0)
+        if(health.GetCurrentHealth() == 0 && !dead)
         {
-            FindObjectOfType<AudioManager>().Play("Death");
+            
             dead = true;
             shooting = false;
             Invoke("SmokeOnDeath", 2f);
@@ -226,8 +226,9 @@ public class TPC_Rob : MonoBehaviour
         dancing = true;
     }
 
-    public void SmokeOnDeath() {
-   
+    public void SmokeOnDeath() 
+    {
+        FindObjectOfType<AudioManager>().Play("Death");
         GameObject.Instantiate(smoke, transform.position, transform.rotation);
     }
 

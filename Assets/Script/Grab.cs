@@ -55,8 +55,13 @@ public class Grab : MonoBehaviour
                 LetterE.SetActive(true);
             }
         }
-        
 
+        if (_tpc.dead)
+        {
+            grabbing = false;
+            if(_rigidbody!= null)
+              _rigidbody.isKinematic = false;
+        }
     
         if (Input.GetKeyDown(KeyCode.E) && mutex)
         {
