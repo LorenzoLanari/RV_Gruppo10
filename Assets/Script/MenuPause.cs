@@ -10,32 +10,33 @@ public class MenuPause : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject Comandi;
     public GameObject QuestWindow;
-
+    public GameObject Componenti;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!Comandi.activeSelf)
-        {
-            if (!QuestWindow.activeSelf)
+        if (!Componenti.activeSelf) {
+            if (!Comandi.activeSelf)
             {
-
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (!QuestWindow.activeSelf)
                 {
-                    if(GameIsPaused)
-                    {
 
-                        Resume();
-                    }
-                    else
+                    if (Input.GetKeyDown(KeyCode.Escape))
                     {
-                        Pause();
+                        if (GameIsPaused)
+                        {
+
+                            Resume();
+                        }
+                        else
+                        {
+                            Pause();
+                        }
                     }
                 }
             }
         }
-
 
 
     }
