@@ -11,6 +11,7 @@ public class TPC_Rob : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 3f;
     [SerializeField] private float distToGround;
     [SerializeField] private Transform feet;
+    [SerializeField] private GameObject smoke;
 
     public Mission mission;
     public LayerMask groundCheckMask;
@@ -67,6 +68,7 @@ public class TPC_Rob : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Death");
             dead = true;
             shooting = false;
+            Invoke("SmokeOnDeath", 2f);
         }
 
 
@@ -223,4 +225,10 @@ public class TPC_Rob : MonoBehaviour
     public void endMission() {
         dancing = true;
     }
+
+    public void SmokeOnDeath() {
+   
+        GameObject.Instantiate(smoke, transform.position, transform.rotation);
+    }
+
 }

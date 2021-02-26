@@ -881,6 +881,7 @@ MonoBehaviour:
   _rotationSpeed: 5
   distToGround: 1.2
   feet: {fileID: 1425578946109955634}
+  smoke: {fileID: 100000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
   mission:
     isActive: 0
     title: 
